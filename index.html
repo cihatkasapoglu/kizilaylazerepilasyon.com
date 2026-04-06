@@ -3,213 +3,271 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Kızılay lazer epilasyon merkezleri, Ankara lazer fiyatları 2026 ve Yenimahalle lazer epilasyon rehberi. En iyi klinikleri karşılaştırın ve randevu alın.">
-    <meta name="keywords" content="Kızılay lazer epilasyon, Ankara lazer fiyatları 2026, Yenimahalle lazer epilasyon, buz lazer Ankara">
-    <title>Kızılay Lazer Epilasyon Rehberi | En İyi Klinikler</title>
+    <title>Kızılay Lazer Epilasyon – Reklam Alanı & Satılık Site</title>
+    <meta name="description" content="Kızılay lazer epilasyon firmaları için reklam verebileceğiniz ve alan adı + hosting ile birlikte satılık web sitesi.">
+    <meta name="keywords" content="kızılay lazer epilasyon, ankara lazer epilasyon, satılık web sitesi, reklam ver">
     
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        clinic: '#1a5f7a',      /* Güven veren klinik mavisi */
-                        clinicLight: '#2b7a9c',
-                        gold: '#d4af37',        /* Lüks altın varak detayı */
-                        vizon: '#f5f0eb',       /* Soft arka plan */
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
-                    }
-                }
-            }
-        }
-    </script>
     <style>
-        /* Smooth Scroll & Özel Seçim Rengi */
-        html { scroll-behavior: smooth; }
-        ::selection { background: #d4af37; color: #fff; }
+        :root {
+            --primary-color: #d81b60; /* Epilasyon/Güzellik temasına uygun pembe/bordo */
+            --secondary-color: #f8bbd0;
+        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .bg-primary-custom { background-color: var(--primary-color) !important; }
+        .text-primary-custom { color: var(--primary-color) !important; }
+        .btn-primary-custom { background-color: var(--primary-color); border-color: var(--primary-color); color: white; }
+        .btn-primary-custom:hover { background-color: #ad144b; color: white; }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1920&q=80') center/cover;
+            color: white;
+            padding: 100px 0;
+        }
+        .sale-banner { background-color: #ffc107; color: #000; padding: 10px 0; font-weight: bold; text-align: center; }
+        .firma-card { transition: transform 0.3s; }
+        .firma-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .whatsapp-btn { background-color: #25D366; color: white; }
+        .whatsapp-btn:hover { background-color: #128C7E; color: white; }
+        .maps-btn { background-color: #4285F4; color: white; }
+        .maps-btn:hover { background-color: #0d47a1; color: white; }
+        footer { background-color: #212529; color: #adb5bd; }
+        .disclaimer { font-size: 0.8rem; border-top: 1px solid #495057; padding-top: 15px; margin-top: 20px; }
     </style>
 </head>
-<body class="bg-vizon text-gray-800 font-sans antialiased pt-12">
+<body>
 
-    <div class="fixed top-0 left-0 w-full bg-red-600 text-white text-center py-2 px-4 z-50 flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-4 shadow-md text-sm sm:text-base font-semibold">
-        <span><i class="fa-solid fa-bullhorn mr-2"></i> Bu Alan Adı ve Web Sitesi Satılıktır! (1 Yıl Domain + Hosting Ücretsiz)</span>
-        <a href="https://wa.me/905555555555" target="_blank" class="bg-green-500 hover:bg-green-600 text-white px-4 py-1 rounded-full transition duration-300 flex items-center shadow-sm">
-            <i class="fa-brands fa-whatsapp mr-2 text-lg"></i> İletişime Geç
-        </a>
+    <div class="sale-banner">
+        🚀 kizilaylazerepilasyon.com Alan Adı ve Bu Web Sitesi SATILIKTIR! (1 Yıl Ücretsiz Hosting Dahil) <a href="#satilik" class="btn btn-sm btn-dark ms-2">Teklif Ver</a>
     </div>
 
-    <header class="bg-white shadow-sm mt-2">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <i class="fa-solid fa-leaf text-gold text-2xl"></i>
-                <a href="#" class="font-serif text-2xl text-clinic font-bold tracking-tight">Kızılay<span class="text-gold">Lazer</span></a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand text-primary-custom fw-bold" href="#">Kızılay Lazer Rehberi</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#anasayfa">Ana Sayfa</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#firmalar">Firmalar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#reklam">Reklam Verin</a></li>
+                    <li class="nav-item"><a class="nav-link text-danger fw-bold" href="#satilik">Satılık</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#hakkimizda">Hakkımızda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#iletisim">İletişim</a></li>
+                </ul>
             </div>
-            <a href="#fiyatlar" class="bg-clinic hover:bg-clinicLight text-white px-6 py-2 rounded-md font-medium transition duration-300 shadow-sm hidden sm:block">
-                İşletmenizi Ekleyin <i class="fa-solid fa-plus ml-1"></i>
-            </a>
-            <button class="sm:hidden text-clinic text-2xl"><i class="fa-solid fa-bars"></i></button>
         </div>
-    </header>
+    </nav>
 
-    <section class="bg-gradient-to-b from-white to-vizon py-16 sm:py-24">
-        <div class="container mx-auto px-4 text-center max-w-3xl">
-            <h1 class="font-serif text-4xl sm:text-5xl text-clinic font-bold mb-4 leading-tight">
-                Kızılay'ın En İyi Lazer Epilasyon Merkezleri Tek Çatıda!
-            </h1>
-            <p class="text-gray-600 text-lg mb-8">
-                Ankara Kızılay'da FDA onaylı cihazlarla hizmet veren, en yüksek puanlı ve güvenilir klinikleri karşılaştırın.
-            </p>
-            
-            <div class="flex items-center bg-white rounded-full shadow-lg p-2 max-w-2xl mx-auto border border-gray-200">
-                <i class="fa-solid fa-magnifying-glass text-gray-400 ml-4"></i>
-                <input type="text" placeholder="Klinik adı, cihaz türü (Buz, Alexandrite) arayın..." class="w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none rounded-l-full">
-                <button class="bg-gold hover:bg-yellow-600 text-white font-bold py-3 px-8 rounded-full transition duration-300">
-                    Ara
+    <section id="anasayfa" class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4">Kızılay Lazer Epilasyon Rehberi – Reklamınız Burada!</h1>
+            <p class="lead mb-5">Kızılay bölgesindeki lazer epilasyon firmalarına kolayca ulaşın veya işletmenizi binlerce potansiyel müşteriyle buluşturun. Bu hazır platform ve alan adı yatırımınız için satışta!</p>
+            <div>
+                <a href="#reklam" class="btn btn-primary-custom btn-lg me-3 px-4 py-2"><i class="fas fa-bullhorn"></i> Hemen Reklam Verin</a>
+                <a href="#satilik" class="btn btn-light btn-lg px-4 py-2 text-dark"><i class="fas fa-shopping-cart"></i> Siteyi Satın Alın</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h3 class="text-center mb-4">⭐ Öne Çıkan Firmalar (Vitrin)</h3>
+            <div id="featuredCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner text-center">
+                    <div class="carousel-item active">
+                        <img src="https://via.placeholder.com/800x300/f8bbd0/d81b60?text=Premium+Reklam+Alani+1" class="img-fluid rounded" alt="Reklam 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://via.placeholder.com/800x300/f8bbd0/d81b60?text=Premium+Reklam+Alani+2" class="img-fluid rounded" alt="Reklam 2">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#featuredCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#featuredCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
                 </button>
             </div>
         </div>
     </section>
 
-    <section class="py-16 container mx-auto px-4" id="klinikler">
-        <div class="flex justify-between items-end mb-8">
-            <h2 class="font-serif text-3xl text-clinic font-bold">Sponsorlu Klinikler <i class="fa-solid fa-crown text-gold ml-2"></i></h2>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 border border-gray-100 relative">
-                <div class="absolute top-4 left-4 bg-gold text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Önerilen</div>
-                <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800" alt="Klinik Görseli" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="text-xl font-bold text-clinic">Estetik Ankara Kızılay</h3>
-                        <div class="flex items-center text-gold text-sm">
-                            <i class="fa-solid fa-star"></i> 4.9 <span class="text-gray-400 ml-1">(124)</span>
-                        </div>
-                    </div>
-                    <p class="text-gray-500 text-sm mb-4"><i class="fa-solid fa-location-dot mr-2"></i>Atatürk Bulvarı No: 123, Kızılay</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="bg-blue-50 text-clinic text-xs px-2 py-1 rounded border border-blue-100">Buz Lazer</span>
-                        <span class="bg-blue-50 text-clinic text-xs px-2 py-1 rounded border border-blue-100">Dermatolog Onaylı</span>
-                    </div>
-                    <a href="tel:+905550000000" class="block w-full text-center bg-clinic hover:bg-clinicLight text-white font-medium py-2 rounded transition duration-300">
-                        Hemen Randevu Al
-                    </a>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 border border-gray-100 flex flex-col justify-center items-center p-6 text-center bg-gray-50 border-dashed border-2 border-gray-300">
-                <i class="fa-regular fa-image text-4xl text-gray-300 mb-4"></i>
-                <h3 class="text-lg font-bold text-gray-500 mb-2">Google Ads Banner Alanı</h3>
-                <p class="text-sm text-gray-400">300x250 Reklam Alanı</p>
-            </div>
-
-             <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 border border-gray-100">
-                <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=80&w=800" alt="Klinik Görseli" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="text-xl font-bold text-clinic">Güzellik Lazer Merkezi</h3>
-                        <div class="flex items-center text-gold text-sm">
-                            <i class="fa-solid fa-star"></i> 4.7 <span class="text-gray-400 ml-1">(89)</span>
-                        </div>
-                    </div>
-                    <p class="text-gray-500 text-sm mb-4"><i class="fa-solid fa-location-dot mr-2"></i>Meşrutiyet Cad. No: 45, Kızılay</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="bg-blue-50 text-clinic text-xs px-2 py-1 rounded border border-blue-100">Alexandrite</span>
-                    </div>
-                    <a href="tel:+905550000000" class="block w-full text-center bg-clinic hover:bg-clinicLight text-white font-medium py-2 rounded transition duration-300">
-                        Hemen Randevu Al
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-white py-16 border-t border-gray-100" id="fiyatlar">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="font-serif text-3xl text-clinic font-bold mb-4">Klinik Sahibisiniz? İşletmenizi Öne Çıkarın!</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Hedef kitlenize doğrudan ulaşın. Kızılay'da lazer epilasyon arayan potansiyel müşterilerin ilk tercihi siz olun.</p>
-            </div>
+    <section id="firmalar" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4 text-primary-custom fw-bold">Kızılay Lazer Epilasyon Merkezleri</h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <div class="border border-gray-200 rounded-xl p-8 text-center hover:border-gold transition">
-                    <h3 class="text-xl font-bold text-gray-700 mb-2">Bronze Paket</h3>
-                    <p class="text-3xl font-bold text-clinic mb-6">₺499<span class="text-sm text-gray-400 font-normal">/ay</span></p>
-                    <ul class="text-left space-y-3 mb-8 text-gray-600">
-                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i>Standart Listeleme</li>
-                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i>Adres ve Telefon Gösterimi</li>
-                        <li><i class="fa-solid fa-xmark text-red-400 mr-2"></i>Sponsorlu Etiketi Yok</li>
-                    </ul>
-                    <button class="w-full border-2 border-clinic text-clinic hover:bg-clinic hover:text-white font-bold py-2 rounded transition">Seç</button>
-                </div>
-                <div class="border-2 border-gold rounded-xl p-8 text-center bg-yellow-50 relative transform md:-translate-y-4 shadow-xl">
-                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gold text-white px-4 py-1 rounded-full text-sm font-bold">En Çok Tercih Edilen</div>
-                    <h3 class="text-xl font-bold text-gray-700 mb-2">Gold Paket</h3>
-                    <p class="text-4xl font-bold text-clinic mb-6">₺1299<span class="text-sm text-gray-400 font-normal">/ay</span></p>
-                    <ul class="text-left space-y-3 mb-8 text-gray-800">
-                        <li><i class="fa-solid fa-check text-gold mr-2"></i><strong>Anasayfa En Üstte Gösterim</strong></li>
-                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i>SEO Uyumlu Özel Profil Sayfası</li>
-                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i>"Sponsorlu" Etiketi</li>
-                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i>Sınırsız Randevu Yönlendirmesi</li>
-                    </ul>
-                    <button class="w-full bg-gold hover:bg-yellow-600 text-white font-bold py-3 rounded transition shadow-md">Hemen Başla</button>
-                </div>
-                <div class="border border-gray-200 rounded-xl p-8 text-center hover:border-gold transition">
-                    <h3 class="text-xl font-bold text-gray-700 mb-2">Silver Paket</h3>
-                    <p class="text-3xl font-bold text-clinic mb-6">₺899<span class="text-sm text-gray-400 font-normal">/ay</span></p>
-                    <ul class="text-left space-y-3 mb-8 text-gray-600">
-                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i>Kategori İçi Üst Sıra</li>
-                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i>Adres, Telefon ve WhatsApp</li>
-                        <li><i class="fa-solid fa-xmark text-red-400 mr-2"></i>Anasayfa Sabitleme Yok</li>
-                    </ul>
-                    <button class="w-full border-2 border-clinic text-clinic hover:bg-clinic hover:text-white font-bold py-2 rounded transition">Seç</button>
+            <div class="row mb-4 justify-content-center">
+                <div class="col-md-8 d-flex gap-2">
+                    <select class="form-select">
+                        <option selected>Hizmet Türü</option>
+                        <option value="1">Lazer Epilasyon</option>
+                        <option value="2">Cilt Bakımı</option>
+                        <option value="3">Bölgesel İncelme</option>
+                    </select>
+                    <select class="form-select">
+                        <option selected>Cinsiyet</option>
+                        <option value="1">Kadın</option>
+                        <option value="2">Erkek</option>
+                        <option value="3">Unisex</option>
+                    </select>
+                    <button class="btn btn-secondary">Filtrele</button>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section class="bg-clinic text-white py-16">
-        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-                <h2 class="font-serif text-3xl font-bold mb-6 text-gold">Yatırımcılar İçin Büyük Fırsat</h2>
-                <p class="mb-4 text-blue-50">
-                    <strong>kizilaylazerepilasyon.com</strong>, doğrudan satın alma niyetli hedef kitlenin arama terimlerine birebir uygun bir <em>Premium Domain</em>'dir.
-                </p>
-                <ul class="space-y-3 text-blue-100">
-                    <li><i class="fa-solid fa-chart-line text-gold mr-2"></i> Kızılay bölgesinde aylık on binlerce arama hacmi.</li>
-                    <li><i class="fa-solid fa-bullseye text-gold mr-2"></i> "Kızılay Lazer", "Ankara Lazer Fiyatları 2026", "Yenimahalle Lazer Epilasyon" anahtar kelimelerinde hızlı organik yükselme potansiyeli.</li>
-                    <li><i class="fa-solid fa-money-bill-trend-up text-gold mr-2"></i> Reklam alanları ve listeleme ücretleri ile pasif gelir modeli (Dizin Sitesi).</li>
-                </ul>
-                <a href="https://wa.me/905555555555" class="inline-block mt-6 bg-white text-clinic font-bold py-3 px-8 rounded-full hover:bg-gold hover:text-white transition duration-300">
-                    Fiyat Teklifi Al
-                </a>
-            </div>
-            
-            <div class="bg-clinicLight p-8 rounded-xl shadow-inner text-sm text-blue-50">
-                <h3 class="font-bold text-xl mb-4 text-white">Lazer Epilasyon Öncesi Dikkat Edilmesi Gerekenler</h3>
-                <p class="mb-3">Kızılay ve Yenimahalle bölgesinde buz lazer veya Alexandrite cihazlarıyla seanslara başlamadan önce güneşlenmekten kaçınmalısınız. Ankara'nın hava şartları göz önüne alındığında...</p>
-                <a href="#" class="text-gold hover:underline font-medium">Devamını Oku &rarr;</a>
+            <div class="row g-4">
                 
-                <hr class="border-blue-400 my-4 opacity-30">
-                <p class="text-xs text-blue-200">
-                    <strong>SEO Etiketleri:</strong> Kızılay en iyi lazer epilasyon yorumları, Ankara güzellik merkezleri, Yenimahalle lazer epilasyon kampanyaları 2026, FDA onaylı buz lazer Ankara merkez.
-                </p>
+                <div class="col-md-4">
+                    <div class="card h-100 firma-card shadow-sm border-0">
+                        <img src="https://via.placeholder.com/400x250/eeeeee/333333?text=Firma+Gorseli+1" class="card-img-top" alt="Örnek Firma 1">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">Örnek Güzellik Merkezi</h5>
+                            <p class="card-text text-muted small">Buz lazer, iğneli epilasyon ve cilt bakımı hizmetleriyle Kızılay'ın merkezinde hizmetinizdeyiz.</p>
+                            <p class="mb-2"><i class="fas fa-map-marker-alt text-danger"></i> Atatürk Blv. No:X Kızılay/Ankara</p>
+                            
+                            <div class="mt-auto d-grid gap-2">
+                                <a href="https://wa.me/905555555555" target="_blank" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> WhatsApp'tan Yaz</a>
+                                <a href="https://maps.google.com/?q=Kizilay+Ankara" target="_blank" class="btn maps-btn"><i class="fas fa-map-marked-alt"></i> Haritada Gör</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 firma-card shadow-sm border-0 bg-light text-center justify-content-center p-4">
+                        <i class="fas fa-ad fa-4x mb-3 text-muted"></i>
+                        <h5 class="card-title text-muted">Reklam Alanı</h5>
+                        <p class="card-text small">Firmanızın burada yer alması için hemen bizimle iletişime geçin.</p>
+                        <a href="#reklam" class="btn btn-outline-primary mt-auto">Buraya Reklam Ver</a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <footer class="bg-gray-900 text-gray-400 py-8 text-center text-sm">
-        <div class="container mx-auto px-4">
-            <p>&copy; 2026 Kızılay Lazer Epilasyon Rehberi. Tüm hakları saklıdır.</p>
-            <p class="mt-2">Bu alan adı satılıktır. İletişim: <a href="mailto:info@domain.com" class="text-gold hover:text-white transition">info@domain.com</a></p>
+    <section id="reklam" class="py-5 bg-light">
+        <div class="container">
+            <div class="row g-5">
+                
+                <div class="col-md-6">
+                    <div class="card border-0 shadow p-4 h-100">
+                        <h3 class="text-primary-custom mb-3">Reklam Verin</h3>
+                        <p class="small text-muted">Aylık binlerce hedeflenmiş ziyaretçiye ulaşın. Banner, slider veya liste reklamı seçeneklerimiz mevcuttur.</p>
+                        <form>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" placeholder="Firma Adı" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" placeholder="İletişim Numarası" required>
+                            </div>
+                            <div class="mb-3">
+                                <select class="form-select">
+                                    <option selected>Reklam Tipi Seçin</option>
+                                    <option>Firma Kartı Ekleme</option>
+                                    <option>Öne Çıkan Slider</option>
+                                    <option>Banner Reklam</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary-custom w-100">Bilgi İste</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-md-6" id="satilik">
+                    <div class="card border-0 shadow p-4 h-100 bg-dark text-white">
+                        <h3 class="text-warning mb-3"><i class="fas fa-rocket"></i> Hazır Proje Satılık!</h3>
+                        <p><strong>kizilaylazerepilasyon.com</strong> alan adı ve tüm site kodlaması 1 yıl ücretsiz hosting avantajıyla yeni sahibini bekliyor.</p>
+                        <ul class="small mb-4">
+                            <li><i class="fas fa-check text-success"></i> Kızılay bölgesine özel, rekabetsiz SEO avantajı</li>
+                            <li><i class="fas fa-check text-success"></i> Hızlı, mobil uyumlu ve modern tasarım</li>
+                            <li><i class="fas fa-check text-success"></i> Pasif gelir (reklam satışı) potansiyeli</li>
+                        </ul>
+                        <form>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" placeholder="Adınız Soyadınız" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="number" class="form-control" placeholder="Teklifiniz (TL)" required>
+                            </div>
+                            <button type="submit" class="btn btn-warning w-100 fw-bold">Teklif Gönder / Hemen Al</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="hakkimizda" class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h2 class="text-primary-custom mb-3">Hakkımızda</h2>
+                    <p>Amacımız; Kızılay bölgesindeki tüm kaliteli lazer epilasyon ve güzellik merkezlerini tek bir çatı altında toplayarak, arama yapan kullanıcılar için şeffaf ve merkezi bir rehber oluşturmaktır.</p>
+                    <p>Firmalar bölgesel aramalarda görünürlüğünü artırırken, müşteriler fiyat, konum ve hizmet kalitesine göre en doğru tercihi yapabilirler.</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="card bg-light border-0 p-4 shadow-sm text-center">
+                        <h5><i class="fas fa-newspaper text-primary-custom"></i> Güzellik Trendlerini Kaçırma</h5>
+                        <p class="small">Lazer epilasyon trendleri ve bakım ipuçları için bültenimize abone ol.</p>
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="E-posta adresiniz">
+                            <button class="btn btn-primary-custom" type="button">Abone Ol</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="iletisim" class="pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-white">İletişim</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-envelope me-2"></i> info@kizilaylazerepilasyon.com</li>
+                        <li><i class="fab fa-whatsapp me-2"></i> 05XX XXX XX XX</li>
+                    </ul>
+                    <div class="d-flex gap-3 mt-3">
+                        <a href="#" class="text-white fs-4"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white fs-4"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-white">Hızlı Linkler</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#reklam" class="text-decoration-none text-secondary">Reklam Verin</a></li>
+                        <li><a href="#satilik" class="text-decoration-none text-warning">Satılık Site Teklifi</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary">Gizlilik Politikası / KVKK</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-white">Bize Ulaşın</h5>
+                    <form class="d-flex flex-column gap-2">
+                        <input type="text" class="form-control form-control-sm" placeholder="Adınız">
+                        <input type="email" class="form-control form-control-sm" placeholder="Email">
+                        <textarea class="form-control form-control-sm" rows="2" placeholder="Mesajınız"></textarea>
+                        <button type="button" class="btn btn-sm btn-primary-custom">Gönder</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="disclaimer text-center mt-4">
+                <p class="mb-1 fw-bold text-light">Yasal Uyarı ve Sorumluluk Reddi</p>
+                <p class="mb-0 text-muted" style="text-align: justify; font-size: 0.75rem;">
+                    Kızılay Lazer Epilasyon Rehberi platformunda listelenen, tavsiye edilen veya reklamı yapılan firmalar ile sitemiz arasında hukuki veya ticari hiçbir organik bağ bulunmamaktadır. Platformumuz, işletmelerin görünürlüğünü artırmak amacıyla tarafsız bir reklam panosu işlevi görmektedir. Ziyaretçilerin ilgili firmalardan aldıkları hizmetlerde yaşayabilecekleri olumsuzluklardan, müşteri memnuniyetsizliklerinden, ticari anlaşmazlıklardan veya sağlık sorunlarından platformumuz (site sahibi/yöneticileri) kesinlikle sorumlu tutulamaz. Hizmet almadan önce ilgili firmanın yetkinliğini ve müşteri yorumlarını araştırmak kullanıcının kendi sorumluluğundadır.
+                </p>
+                <p class="mt-3 mb-0 text-secondary">&copy; 2026 Kızılay Lazer Epilasyon Rehberi. Tüm hakları saklıdır.</p>
+            </div>
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

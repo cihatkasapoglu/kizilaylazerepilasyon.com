@@ -7,7 +7,7 @@
     <meta name="description" content="Ankara Kızılay'ın en iyi lazer epilasyon merkezlerini ve güzellik salonlarını keşfedin. Fiyatları karşılaştırın, size en uygun kliniği bulun.">
     <meta name="keywords" content="Ankara Kızılay lazer epilasyon fiyatları, en iyi epilasyon merkezleri Kızılay, Kızılay güzellik salonları, buz lazer, iğneli epilasyon Ankara">
     
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -15,157 +15,175 @@
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Poppins', 'sans-serif'] },
+                    fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] },
                     colors: {
                         brand: {
-                            50: '#fdf2f8', // Soft pink background
+                            50: '#fdf2f8',
                             100: '#fce7f3',
-                            500: '#ec4899', // Primary brand color
+                            500: '#ec4899', 
                             600: '#db2777',
                             900: '#831843',
                         },
-                        gold: {
-                            400: '#fbbf24',
-                            500: '#f59e0b',
+                        premium: {
+                            gold: '#D4AF37',
+                            dark: '#0f172a'
                         }
+                    },
+                    boxShadow: {
+                        'premium': '0 20px 40px -15px rgba(0,0,0,0.05)'
                     }
                 }
             }
         }
     </script>
     <style>
-        /* Custom Scrollbar for a premium feel */
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-track { background: #f8fafc; }
         ::-webkit-scrollbar-thumb { background: #ec4899; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #db2777; }
-        body { font-family: 'Poppins', sans-serif; background-color: #f9fafb; }
-        .glass-effect { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); }
+        body { background-color: #f8fafc; }
+        .gradient-text { background: linear-gradient(to right, #db2777, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     </style>
 </head>
-<body class="text-gray-800 pt-16">
+<body class="text-slate-800 pt-[72px]">
 
-    <div class="fixed top-0 left-0 w-full bg-gradient-to-r from-red-600 to-rose-600 text-white z-50 shadow-md">
-        <div class="container mx-auto px-4 py-3 flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-2 md:gap-0">
-            <div class="text-xs md:text-sm font-semibold tracking-wide">
-                <span class="animate-pulse inline-block">🚀</span> 
-                <span class="text-yellow-300">FIRSAT:</span> kizilaylazerepilasyon.com Alan Adı ve Bu Hazır Web Sitesi <strong>SATILIKTIR!</strong> (1 Yıl Domain + Hosting Bizden)
+    <div class="fixed top-0 left-0 w-full bg-gradient-to-r from-slate-900 via-brand-900 to-slate-900 text-white z-50 shadow-lg border-b border-white/10">
+        <div class="container mx-auto px-4 py-3 flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-3 md:gap-0">
+            <div class="text-xs md:text-sm font-medium tracking-wide">
+                <span class="animate-pulse inline-block mr-1">🚀</span> 
+                <span class="text-premium-gold font-bold">FIRSAT:</span> 
+                <span class="opacity-90">kizilaylazerepilasyon.com Alan Adı ve Bu Hazır Web Sitesi</span> 
+                <strong class="bg-white/20 px-2 py-0.5 rounded">SATILIKTIR!</strong> 
+                <span class="opacity-75 text-xs hidden lg:inline">(1 Yıl Domain + Hosting Bizden)</span>
             </div>
             <a href="https://wa.me/905537383806?text=Merhaba,%20kizilaylazerepilasyon.com%20satisi%20hakkinda%20bilgi%20almak%20istiyorum." 
                target="_blank"
-               class="bg-green-500 hover:bg-green-600 text-white px-4 py-1.5 rounded-full text-xs font-bold transition flex items-center gap-2 shadow-lg whitespace-nowrap">
-                <i class="fab fa-whatsapp text-lg"></i> WhatsApp'tan Bilgi Al
+               class="bg-[#25D366] hover:bg-[#1ebe57] text-white px-5 py-2 rounded-full text-xs font-bold transition-all transform hover:scale-105 flex items-center gap-2 shadow-[0_0_15px_rgba(37,211,102,0.4)] whitespace-nowrap">
+                <i class="fab fa-whatsapp text-lg"></i> Satın Almak İçin Yazın
             </a>
         </div>
     </div>
 
-    <header class="bg-brand-50 relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-64 h-64 bg-brand-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
-        <div class="absolute top-0 left-0 w-64 h-64 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
+    <header class="relative bg-white overflow-hidden border-b border-slate-100">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.02]"></div>
+        <div class="absolute top-[-10%] right-[-5%] w-96 h-96 bg-brand-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50"></div>
+        <div class="absolute bottom-[-10%] left-[-5%] w-96 h-96 bg-blue-50 rounded-full mix-blend-multiply filter blur-3xl opacity-50"></div>
         
-        <div class="container mx-auto px-4 py-16 md:py-24 relative z-10 text-center">
-            <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 mb-6 leading-tight">
-                Kızılay'ın En İyi Lazer Epilasyon <br class="hidden md:block"> <span class="text-brand-500">Merkezlerini Keşfedin.</span>
+        <div class="container mx-auto px-4 py-20 md:py-32 relative z-10 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-50 text-brand-600 text-sm font-semibold mb-6 border border-brand-100">
+                <i class="fas fa-map-marker-alt"></i> Ankara / Kızılay
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 mb-6 tracking-tight leading-tight">
+                Kızılay'ın En İyi Lazer Epilasyon <br class="hidden md:block"> 
+                <span class="gradient-text">Merkezlerini Keşfedin.</span>
             </h1>
-            <p class="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
+            <p class="text-lg md:text-xl text-slate-500 mb-12 max-w-2xl mx-auto font-light">
                 Kliniklerin puanlarını karşılaştırın, size en uygun merkezi bulun veya işletmenizi günde binlerce potansiyel müşteriye gösterin.
             </p>
             
-            <div class="max-w-3xl mx-auto bg-white p-2 rounded-full shadow-lg flex flex-col md:flex-row items-center gap-2 border border-gray-100">
-                <div class="flex-1 w-full flex items-center px-4 py-2">
-                    <i class="fas fa-search text-gray-400 mr-3"></i>
-                    <input type="text" placeholder="Firma Adı veya Hizmet (Örn: Buz Lazer)" class="w-full bg-transparent focus:outline-none text-gray-700">
+            <div class="max-w-4xl mx-auto bg-white p-3 rounded-2xl shadow-premium flex flex-col md:flex-row items-center gap-3 border border-slate-100">
+                <div class="flex-1 w-full flex items-center px-4 py-3 bg-slate-50 rounded-xl border border-slate-100 focus-within:border-brand-300 focus-within:bg-white transition-all">
+                    <i class="fas fa-search text-brand-500 mr-3"></i>
+                    <input type="text" placeholder="Klinik Adı veya Hizmet (Örn: Buz Lazer, Cilt Bakımı)" class="w-full bg-transparent focus:outline-none text-slate-700 font-medium placeholder-slate-400">
                 </div>
-                <button class="w-full md:w-auto bg-brand-500 hover:bg-brand-600 text-white font-semibold py-3 px-8 rounded-full transition shadow-md">
-                    Ara
+                <button class="w-full md:w-auto bg-slate-900 hover:bg-brand-600 text-white font-semibold py-4 px-10 rounded-xl transition-colors shadow-lg">
+                    Merkez Bul
                 </button>
             </div>
         </div>
     </header>
 
-    <section class="py-16 container mx-auto px-4" id="firmalar">
-        <div class="flex justify-between items-end mb-10">
+    <section class="py-20 container mx-auto px-4" id="firmalar">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
             <div>
-                <h2 class="text-3xl font-bold text-gray-800">Öne Çıkan Klinikler</h2>
-                <p class="text-gray-500 mt-2">Kızılay'da en çok tercih edilen, yüksek puanlı merkezler.</p>
+                <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Öne Çıkan Klinikler</h2>
+                <p class="text-slate-500 mt-2 text-lg">Kızılay'da en çok tercih edilen, yüksek puanlı merkezler.</p>
             </div>
+            <a href="#reklam-ver" class="text-brand-600 font-semibold hover:text-brand-700 flex items-center gap-1 group">
+                İşletmenizi Ekleyin <i class="fas fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+            </a>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             
-            <div class="bg-white rounded-2xl overflow-hidden shadow-xl border-2 border-gold-400 relative transform transition hover:-translate-y-1 hover:shadow-2xl">
-                <div class="absolute top-0 right-0 bg-gold-400 text-white text-xs font-extrabold px-4 py-1.5 rounded-bl-lg z-10 flex items-center gap-1 shadow-sm">
-                    <i class="fas fa-crown"></i> Öne Çıkan
+            <div class="bg-white rounded-3xl overflow-hidden shadow-premium border-[3px] border-premium-gold/30 relative group hover:border-premium-gold transition-colors">
+                <div class="absolute top-4 right-4 bg-premium-gold text-white text-xs font-bold px-4 py-1.5 rounded-full z-10 flex items-center gap-1 shadow-lg backdrop-blur-sm">
+                    <i class="fas fa-crown"></i> Sırada
                 </div>
-                <div class="relative h-56">
-                    <img src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Klinik Görseli" class="w-full h-full object-cover">
-                    <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-4">
+                <div class="relative h-60 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Klinik Görseli" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent"></div>
+                    <div class="absolute bottom-4 left-6">
+                        <img src="https://ui-avatars.com/api/?name=Elite&background=fff&color=ec4899" class="w-12 h-12 rounded-xl border-2 border-white mb-2 shadow-sm">
                         <h3 class="text-2xl font-bold text-white">Elite Estetik & Lazer</h3>
                     </div>
                 </div>
                 <div class="p-6">
-                    <div class="flex items-center text-gold-500 mb-4">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        <span class="text-gray-600 text-sm ml-2 font-medium">4.9 (128 Yorum)</span>
+                    <div class="flex justify-between items-center mb-4 pb-4 border-b border-slate-100">
+                        <div class="flex items-center text-premium-gold">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span class="text-slate-700 text-sm ml-2 font-bold">4.9 <span class="font-normal text-slate-400">(128)</span></span>
+                        </div>
+                        <span class="text-xs font-medium text-emerald-600 bg-emerald-50 px-2 py-1 rounded-md">Doğrulanmış</span>
                     </div>
-                    <div class="space-y-2 mb-6 text-sm text-gray-600">
-                        <p class="flex items-start gap-2"><i class="fas fa-map-marker-alt text-brand-500 mt-1"></i> <span>Atatürk Bulvarı, Kızılay AVM Karşısı No:45 Kat:2, Çankaya/Ankara</span></p>
-                        <p class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Buz Lazer, Cilt Bakımı, İğneli Epilasyon</p>
+                    <div class="space-y-3 mb-6 text-sm text-slate-600 font-medium">
+                        <p class="flex items-start gap-3"><i class="fas fa-map-marker-alt text-brand-500 mt-1 text-lg"></i> <span>Atatürk Bulvarı, Kızılay AVM Karşısı No:45 Kat:2</span></p>
+                        <p class="flex items-center gap-3"><i class="fas fa-check-circle text-brand-500 text-lg"></i> Buz Lazer, Cilt Bakımı, İğneli Epilasyon</p>
                     </div>
-                    <div class="flex gap-2">
-                        <a href="https://wa.me/905000000000" target="_blank" class="flex-1 bg-green-500 hover:bg-green-600 text-white text-center py-2.5 rounded-xl font-semibold transition flex items-center justify-center gap-2 shadow-sm">
-                            <i class="fab fa-whatsapp text-lg"></i> Randevu Al
+                    <div class="flex gap-3">
+                        <a href="https://wa.me/905000000000" target="_blank" class="flex-1 bg-slate-900 hover:bg-brand-600 text-white text-center py-3 rounded-xl font-bold transition-colors flex items-center justify-center gap-2">
+                            <i class="fab fa-whatsapp text-xl"></i> Randevu
                         </a>
-                        <a href="tel:+905000000000" class="bg-gray-100 hover:bg-gray-200 text-gray-700 w-12 flex items-center justify-center rounded-xl transition tooltip">
+                        <a href="tel:+905000000000" class="bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200 w-14 flex items-center justify-center rounded-xl transition-colors">
                             <i class="fas fa-phone"></i>
                         </a>
-                        <a href="https://maps.google.com/?q=Atatürk+Bulvarı+Kızılay" target="_blank" class="bg-gray-100 hover:bg-gray-200 text-gray-700 w-12 flex items-center justify-center rounded-xl transition">
-                            <i class="fas fa-directions text-blue-500"></i>
+                        <a href="https://maps.google.com/?q=Atatürk+Bulvarı+Kızılay" target="_blank" class="bg-slate-50 hover:bg-slate-100 text-brand-600 border border-slate-200 w-14 flex items-center justify-center rounded-xl transition-colors">
+                            <i class="fas fa-directions"></i>
                         </a>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 relative transform transition hover:-translate-y-1 hover:shadow-xl">
-                <div class="relative h-48">
+            <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200 hover:shadow-premium transition-shadow">
+                <div class="relative h-52 overflow-hidden">
                     <img src="https://images.unsplash.com/photo-1519415943484-9fa1873496d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Klinik Görseli" class="w-full h-full object-cover">
                 </div>
-                <div class="p-5">
-                    <h3 class="text-xl font-bold text-gray-800 mb-1">Gülşen Güzellik Merkezi</h3>
-                    <div class="flex items-center text-gold-500 mb-3 text-sm">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Gülşen Güzellik</h3>
+                    <div class="flex items-center text-premium-gold mb-4 pb-4 border-b border-slate-50 text-sm">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                        <span class="text-gray-600 ml-2 font-medium">4.2 (45 Yorum)</span>
+                        <span class="text-slate-600 ml-2 font-semibold">4.2 <span class="font-normal text-slate-400">(45)</span></span>
                     </div>
-                    <div class="space-y-2 mb-5 text-xs text-gray-600">
-                        <p class="flex items-start gap-2"><i class="fas fa-map-marker-alt text-gray-400 mt-1"></i> <span>Meşrutiyet Cad. No:12 Kızılay</span></p>
+                    <div class="space-y-2 mb-6 text-sm text-slate-500">
+                        <p class="flex items-start gap-2"><i class="fas fa-map-marker-alt text-slate-400 mt-1"></i> <span>Meşrutiyet Cad. No:12 Kızılay</span></p>
                     </div>
                     <div class="flex gap-2">
-                        <a href="#" class="flex-1 bg-green-50 text-green-600 border border-green-200 hover:bg-green-100 text-center py-2 rounded-lg font-semibold transition text-sm flex items-center justify-center gap-2">
-                            <i class="fab fa-whatsapp"></i> Mesaj At
+                        <a href="#" class="flex-1 bg-[#25D366]/10 text-[#25D366] hover:bg-[#25D366] hover:text-white border border-[#25D366]/20 text-center py-2.5 rounded-xl font-semibold transition-colors text-sm flex items-center justify-center gap-2">
+                            <i class="fab fa-whatsapp text-lg"></i> Mesaj At
                         </a>
-                        <a href="#" class="bg-gray-50 text-gray-600 border border-gray-200 py-2 px-3 rounded-lg hover:bg-gray-100 transition"><i class="fas fa-directions"></i></a>
+                        <a href="#" class="bg-slate-50 text-slate-600 border border-slate-200 py-2.5 px-4 rounded-xl hover:bg-slate-100 transition-colors"><i class="fas fa-directions"></i></a>
                     </div>
                 </div>
             </div>
             
-            <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 relative transform transition hover:-translate-y-1 hover:shadow-xl">
-                <div class="relative h-48">
+            <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200 hover:shadow-premium transition-shadow">
+                <div class="relative h-52 overflow-hidden">
                     <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Klinik Görseli" class="w-full h-full object-cover">
                 </div>
-                <div class="p-5">
-                    <h3 class="text-xl font-bold text-gray-800 mb-1">Nova Lazer Epilasyon</h3>
-                    <div class="flex items-center text-gold-500 mb-3 text-sm">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Nova Lazer Merkezi</h3>
+                    <div class="flex items-center text-premium-gold mb-4 pb-4 border-b border-slate-50 text-sm">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        <span class="text-gray-600 ml-2 font-medium">4.6 (89 Yorum)</span>
+                        <span class="text-slate-600 ml-2 font-semibold">4.6 <span class="font-normal text-slate-400">(89)</span></span>
                     </div>
-                    <div class="space-y-2 mb-5 text-xs text-gray-600">
-                        <p class="flex items-start gap-2"><i class="fas fa-map-marker-alt text-gray-400 mt-1"></i> <span>Ziya Gökalp Cad. No:28 Kızılay</span></p>
+                    <div class="space-y-2 mb-6 text-sm text-slate-500">
+                        <p class="flex items-start gap-2"><i class="fas fa-map-marker-alt text-slate-400 mt-1"></i> <span>Ziya Gökalp Cad. No:28 Kızılay</span></p>
                     </div>
                     <div class="flex gap-2">
-                        <a href="#" class="flex-1 bg-green-50 text-green-600 border border-green-200 hover:bg-green-100 text-center py-2 rounded-lg font-semibold transition text-sm flex items-center justify-center gap-2">
-                            <i class="fab fa-whatsapp"></i> Mesaj At
+                        <a href="#" class="flex-1 bg-[#25D366]/10 text-[#25D366] hover:bg-[#25D366] hover:text-white border border-[#25D366]/20 text-center py-2.5 rounded-xl font-semibold transition-colors text-sm flex items-center justify-center gap-2">
+                            <i class="fab fa-whatsapp text-lg"></i> Mesaj At
                         </a>
-                        <a href="#" class="bg-gray-50 text-gray-600 border border-gray-200 py-2 px-3 rounded-lg hover:bg-gray-100 transition"><i class="fas fa-directions"></i></a>
+                        <a href="#" class="bg-slate-50 text-slate-600 border border-slate-200 py-2.5 px-4 rounded-xl hover:bg-slate-100 transition-colors"><i class="fas fa-directions"></i></a>
                     </div>
                 </div>
             </div>
@@ -173,138 +191,217 @@
         </div>
     </section>
 
-    <section class="py-16 bg-blue-50" id="reklam-ver">
-        <div class="container mx-auto px-4">
-            <div class="text-center max-w-2xl mx-auto mb-12">
-                <h2 class="text-3xl font-bold text-gray-900 mb-4">Müşterileriniz Sizi Arıyor!</h2>
-                <p class="text-gray-600">Kızılay bölgesindeki potansiyel müşterilere doğrudan ulaşın. Yüzlerce güzellik araması arasından sıyrılıp en üst sırada yerinizi alın.</p>
+    <section class="py-24 bg-white border-y border-slate-100 relative overflow-hidden" id="reklam-ver">
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-slate-50 transform -skew-x-12 translate-x-32 hidden lg:block"></div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-500 font-bold tracking-wider uppercase text-sm mb-2 block">İşletmeler İçin</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Bölgenizdeki Müşteriler Sizi Arıyor!</h2>
+                <p class="text-slate-500 text-lg">Kızılay bölgesindeki binlerce potansiyel müşteriye doğrudan ulaşın. Yüzlerce güzellik araması arasından sıyrılıp en üst sırada yerinizi alın.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <div class="bg-white rounded-2xl p-8 shadow-md border border-gray-100">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Standart Liste</h3>
-                    <p class="text-gray-500 text-sm mb-6">Rehberde organik bir şekilde yerinizi alın.</p>
-                    <div class="text-3xl font-extrabold text-brand-500 mb-6">₺XXX<span class="text-sm text-gray-400 font-normal">/ay</span></div>
-                    <ul class="space-y-3 mb-8 text-sm text-gray-600">
-                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Firma Adı ve Adres</li>
-                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Telefon Numarası</li>
-                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Standart Sıralama</li>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto items-center">
+                
+                <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-200 hover:shadow-premium transition-shadow">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-2">Standart Liste</h3>
+                    <p class="text-slate-500 text-sm mb-8 h-10">Rehberde organik bir şekilde yerinizi alın.</p>
+                    <div class="text-4xl font-extrabold text-slate-900 mb-8">₺XXX<span class="text-base text-slate-400 font-normal">/ay</span></div>
+                    <ul class="space-y-4 mb-8 text-sm text-slate-600 font-medium">
+                        <li class="flex items-center gap-3"><i class="fas fa-check-circle text-emerald-500 text-lg"></i> Firma Adı ve Adres</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check-circle text-emerald-500 text-lg"></i> Telefon Numarası</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check-circle text-emerald-500 text-lg"></i> Standart Sıralama</li>
                     </ul>
-                    <button class="w-full bg-brand-50 text-brand-600 font-semibold py-2 rounded-xl border border-brand-200 hover:bg-brand-100 transition">Hemen Başvur</button>
+                    <button class="w-full bg-slate-50 text-slate-700 font-bold py-3.5 rounded-xl border border-slate-200 hover:bg-slate-100 transition-colors">Hemen Başvur</button>
                 </div>
 
-                <div class="bg-gray-900 rounded-2xl p-8 shadow-2xl relative transform scale-100 md:scale-105 z-10 border border-gray-800">
-                    <div class="absolute top-0 inset-x-0 transform -translate-y-1/2">
-                        <span class="bg-brand-500 text-white text-xs font-bold uppercase tracking-wider py-1 px-3 rounded-full mx-auto table">En Çok Tercih Edilen</span>
+                <div class="bg-slate-900 rounded-3xl p-8 shadow-2xl relative transform scale-100 lg:scale-110 z-10 border border-slate-800">
+                    <div class="absolute -top-4 inset-x-0 flex justify-center">
+                        <span class="bg-gradient-to-r from-premium-gold to-yellow-400 text-slate-900 text-xs font-black uppercase tracking-wider py-1.5 px-4 rounded-full shadow-lg">
+                            En Çok Tercih Edilen
+                        </span>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Vitrin İlanı</h3>
-                    <p class="text-gray-400 text-sm mb-6">Aramalarda üst sıralarda altın çerçeve ile görünün.</p>
-                    <div class="text-3xl font-extrabold text-white mb-6">₺XXX<span class="text-sm text-gray-500 font-normal">/ay</span></div>
-                    <ul class="space-y-3 mb-8 text-sm text-gray-300">
-                        <li class="flex items-center gap-2"><i class="fas fa-check text-brand-400"></i> Standart Paketteki Her Şey</li>
-                        <li class="flex items-center gap-2"><i class="fas fa-check text-brand-400"></i> <strong>VIP Altın Çerçeve Tasarımı</strong></li>
-                        <li class="flex items-center gap-2"><i class="fas fa-check text-brand-400"></i> Kategori Üstü Gösterim</li>
-                        <li class="flex items-center gap-2"><i class="fas fa-check text-brand-400"></i> Doğrudan WhatsApp Butonu</li>
+                    <h3 class="text-2xl font-bold text-white mb-2 mt-2">Vitrin İlanı</h3>
+                    <p class="text-slate-400 text-sm mb-8 h-10">Aramalarda üst sıralarda altın çerçeve ile görünün.</p>
+                    <div class="text-4xl font-extrabold text-white mb-8">₺XXX<span class="text-base text-slate-500 font-normal">/ay</span></div>
+                    <ul class="space-y-4 mb-8 text-sm text-slate-300 font-medium">
+                        <li class="flex items-center gap-3"><i class="fas fa-check-circle text-premium-gold text-lg"></i> Standart Paketteki Her Şey</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check-circle text-premium-gold text-lg"></i> <strong class="text-white">VIP Altın Çerçeve Tasarımı</strong></li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check-circle text-premium-gold text-lg"></i> Kategori Üstü Gösterim</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check-circle text-premium-gold text-lg"></i> Doğrudan WhatsApp Butonu</li>
                     </ul>
-                    <button class="w-full bg-brand-500 hover:bg-brand-600 text-white font-semibold py-3 rounded-xl transition shadow-lg shadow-brand-500/30">Hemen Başvur</button>
+                    <button class="w-full bg-brand-500 hover:bg-brand-600 text-white font-bold py-4 rounded-xl transition-colors shadow-lg shadow-brand-500/30">Hemen Başvur</button>
                 </div>
 
-                <div class="bg-white rounded-2xl p-8 shadow-md border border-gray-100">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Ana Sayfa Banner</h3>
-                    <p class="text-gray-500 text-sm mb-6">Maksimum görünürlük ile markanızı zirveye taşıyın.</p>
-                    <div class="text-3xl font-extrabold text-brand-500 mb-6">Özel Fiyat</div>
-                    <ul class="space-y-3 mb-8 text-sm text-gray-600">
-                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Sitenin En Üstünde Görsel Banner</li>
-                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Doğrudan Web Sitenize Yönlendirme</li>
-                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Sosyal Medya Desteği</li>
+                <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-200 hover:shadow-premium transition-shadow">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-2">Ana Sayfa Banner</h3>
+                    <p class="text-slate-500 text-sm mb-8 h-10">Maksimum görünürlük ile markanızı zirveye taşıyın.</p>
+                    <div class="text-4xl font-extrabold text-slate-900 mb-8">Özel</div>
+                    <ul class="space-y-4 mb-8 text-sm text-slate-600 font-medium">
+                        <li class="flex items-center gap-3"><i class="fas fa-check-circle text-emerald-500 text-lg"></i> Sitenin En Üstünde Görsel</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check-circle text-emerald-500 text-lg"></i> Doğrudan Web Sitesi Yönlendirmesi</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check-circle text-emerald-500 text-lg"></i> Sosyal Medya Desteği</li>
                     </ul>
-                    <button class="w-full bg-brand-50 text-brand-600 font-semibold py-2 rounded-xl border border-brand-200 hover:bg-brand-100 transition">İletişime Geç</button>
+                    <button class="w-full bg-slate-50 text-slate-700 font-bold py-3.5 rounded-xl border border-slate-200 hover:bg-slate-100 transition-colors">İletişime Geç</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="bg-orange-50 border-t border-b border-orange-200 py-6">
-        <div class="container mx-auto px-4 flex gap-4 items-start max-w-5xl">
-            <i class="fas fa-info-circle text-orange-500 text-2xl mt-1"></i>
-            <p class="text-sm text-orange-800 leading-relaxed">
-                <strong>Bilgilendirme ve Yasal Uyarı:</strong> Sitemizde tavsiye edilen firmalar, internet üzerindeki açık kaynaklı kullanıcı yorumları ve müşteri geri dönüşleri göz önünde bulundurularak listelenmektedir. <span class="font-semibold">kizilaylazerepilasyon.com</span> ile sitemizde yer alan firmalar arasında herhangi bir organik bağ, ortaklık veya sponsorluk dışı bağlılık bulunmamaktadır. Firmalardan aldığınız hizmetlerde yaşanabilecek olası memnuniyetsizlikler veya sorunlarda platformumuz taraf ve sorumlu değildir. Tercih yaparken kliniklerle bizzat görüşmeniz tavsiye edilir.
-            </p>
+    <section class="py-20 bg-slate-50 border-b border-slate-200">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-slate-900">Lazer Epilasyon Rehberi & Blog</h2>
+                <p class="text-slate-500 mt-2">Kızılay'da epilasyon yaptırmadan önce bilmeniz gereken her şey.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <article class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Buz Lazer Kızılay" class="w-full h-40 object-cover">
+                    <div class="p-6">
+                        <span class="text-xs font-bold text-brand-500 uppercase tracking-wider">Rehber</span>
+                        <h3 class="text-lg font-bold text-slate-900 mt-2 mb-3">Ankara Kızılay Lazer Epilasyon Fiyatları Neye Göre Değişir?</h3>
+                        <p class="text-slate-500 text-sm line-clamp-3 mb-4">Kızılay güzellik salonlarında fiyatlar cihazın türüne (Buz Lazer, Alexandrite), seans sayısına ve bölgeye göre farklılık göstermektedir. Detaylı analizimiz...</p>
+                        <a href="#" class="text-brand-600 font-semibold text-sm hover:underline">Devamını Oku &rarr;</a>
+                    </div>
+                </article>
+                
+                <article class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="En İyi Epilasyon" class="w-full h-40 object-cover">
+                    <div class="p-6">
+                        <span class="text-xs font-bold text-brand-500 uppercase tracking-wider">İnceleme</span>
+                        <h3 class="text-lg font-bold text-slate-900 mt-2 mb-3">En İyi Epilasyon Merkezleri Kızılay'da Nasıl Seçilir?</h3>
+                        <p class="text-slate-500 text-sm line-clamp-3 mb-4">Doğru kliniği seçerken hijyen standartları, FDA onaylı cihaz kullanımı ve uzman kadro faktörlerine dikkat etmelisiniz. İşte dikkat etmeniz gereken 5 kriter.</p>
+                        <a href="#" class="text-brand-600 font-semibold text-sm hover:underline">Devamını Oku &rarr;</a>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Buz Lazer vs İğneli" class="w-full h-40 object-cover">
+                    <div class="p-6">
+                        <span class="text-xs font-bold text-brand-500 uppercase tracking-wider">Karşılaştırma</span>
+                        <h3 class="text-lg font-bold text-slate-900 mt-2 mb-3">Buz Lazer mi, İğneli Epilasyon mu? Hangisi Daha Kalıcı?</h3>
+                        <p class="text-slate-500 text-sm line-clamp-3 mb-4">Kıl yapınıza ve cilt tipinize göre en uygun epilasyon yöntemini bulmak kalıcılık açısından kritik öneme sahiptir. Uzman görüşleri ve kullanıcı deneyimleri...</p>
+                        <a href="#" class="text-brand-600 font-semibold text-sm hover:underline">Devamını Oku &rarr;</a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm text-slate-600 text-sm leading-relaxed">
+                <h3 class="text-xl font-bold text-slate-900 mb-4">Ankara Kızılay Lazer Epilasyon ve Güzellik Merkezleri</h3>
+                <p class="mb-4">
+                    Ankara'nın merkezi olan Kızılay, estetik ve güzellik sektörünün kalbidir. <strong>Kızılay güzellik salonları</strong>, yenilikçi teknolojiler kullanarak danışanlarına kalıcı pürüzsüzlük sunmaktadır. Sistemimizde listelenen firmalar aracılığıyla <strong>Ankara Kızılay lazer epilasyon fiyatları</strong> hakkında güncel bilgileri alabilir, bütçenize ve ihtiyacınıza en uygun <strong>en iyi epilasyon merkezleri Kızılay</strong> lokasyonlarını tek bir ekranda karşılaştırabilirsiniz.
+                </p>
+                <p>
+                    Amacımız, kullanıcıların saatlerce araştırma yapmadan, doğru iletişim bilgilerine, WhatsApp hatlarına ve adres tariflerine hızlıca ulaşmasını sağlamaktır.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <div class="bg-amber-50 border-t border-amber-200 py-10">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <div class="flex flex-col md:flex-row gap-6 items-start">
+                <div class="bg-amber-100 p-3 rounded-full shrink-0">
+                    <i class="fas fa-shield-alt text-amber-600 text-2xl"></i>
+                </div>
+                <div class="text-sm text-amber-900 leading-relaxed space-y-3 font-medium">
+                    <p>
+                        <strong>kizilaylazerepilasyon.com</strong>, yalnızca Ankara Kızılay bölgesindeki lazer epilasyon ve güzellik hizmeti sunan işletmeleri bir araya getiren bağımsız bir yerel firma rehberi ve ilan platformudur. Bu sitede yer alan işletmeler; müşteri yorumları, genel hizmet değerlendirmeleri ve kullanıcı geri bildirimleri esas alınarak seçilmekte olup sitemizle herhangi bir ticari ortaklık, anlaşma veya bağlılık bulunmamaktadır.
+                    </p>
+                    <p>
+                        Listelenen işletmelerle yaşanabilecek fiyat uyuşmazlığı, hizmet kalitesi sorunu, randevu iptali veya sair şikayetlerden <strong>kizilaylazerepilasyon.com hiçbir şekilde sorumlu tutulamaz.</strong> Kullanıcıların hizmet almadan önce ilgili işletmeyle doğrudan iletişime geçmelerini tavsiye ederiz. Platform herhangi bir işletmeyi garanti etmez ve hukuki sorumluluk üstlenmez.
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 
-    <article class="py-16 container mx-auto px-4 max-w-4xl text-gray-600">
-        <h2 class="text-2xl font-bold text-gray-900 mb-4">Ankara Kızılay Lazer Epilasyon Fiyatları ve Merkezleri</h2>
-        <p class="mb-4 text-sm leading-relaxed">
-            Ankara'nın kalbi Kızılay, güzellik ve estetik merkezleri açısından en zengin bölgelerden biridir. <strong>Kızılay güzellik salonları</strong> ve kliniklerinde, son teknoloji buz lazer, alexandrite ve iğneli epilasyon gibi kalıcı çözümler sunulmaktadır. <strong>Ankara Kızılay lazer epilasyon fiyatları</strong>, seans sayısına, kullanılan cihazın teknolojisine (örneğin orijinal Soprano Titanium veya Ice) ve kliniğin uzmanlığına göre değişiklik göstermektedir.
-        </p>
-        <h3 class="text-lg font-bold text-gray-800 mt-6 mb-2">En İyi Epilasyon Merkezleri Kızılay'da Nasıl Bulunur?</h3>
-        <p class="text-sm leading-relaxed mb-4">
-            Doğru ve güvenilir merkezi seçerken, sadece fiyata değil, hijyen standartlarına, uzman estetisyenlerin tecrübesine ve kullanıcı yorumlarına dikkat etmek büyük önem taşır. Platformumuz, Kızılay'daki <strong>en iyi epilasyon merkezleri</strong> arayışınızda size şeffaf bir rehberlik sunmayı hedefler. Sitemiz üzerinden kliniklerin adres bilgilerine, WhatsApp iletişim numaralarına anında ulaşabilir, ücretsiz ön görüşme randevusu oluşturabilirsiniz.
-        </p>
-    </article>
-
-    <footer class="bg-gray-900 text-gray-400 py-12">
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t-4 border-brand-500">
         <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-8 mb-8 border-b border-gray-800 pb-8">
+            <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-8 mb-8 border-b border-slate-800 pb-8">
                 <div class="text-center md:text-left">
-                    <h4 class="text-xl font-bold text-white mb-2">kizilaylazerepilasyon.com</h4>
-                    <p class="text-sm text-gray-500 max-w-sm">Kızılay bölgesinin en güncel ve güvenilir güzellik merkezi ve lazer epilasyon firma rehberi.</p>
+                    <h4 class="text-2xl font-black text-white mb-2 tracking-tight">kizilaylazerepilasyon<span class="text-brand-500">.com</span></h4>
+                    <p class="text-sm text-slate-500 max-w-sm">Kızılay bölgesinin en prestijli güzellik merkezi ve lazer epilasyon rehberi.</p>
                 </div>
                 
-                <div class="flex gap-4 text-sm font-medium">
-                    <button onclick="toggleModal('kvkk-modal')" class="hover:text-white transition">KVKK Aydınlatma Metni</button>
-                    <span class="text-gray-700">|</span>
-                    <button onclick="toggleModal('gizlilik-modal')" class="hover:text-white transition">Gizlilik Politikası</button>
+                <div class="flex flex-wrap justify-center gap-6 text-sm font-semibold">
+                    <button onclick="toggleModal('kvkk-modal')" class="hover:text-white transition-colors">KVKK Aydınlatma Metni</button>
+                    <span class="text-slate-700 hidden sm:inline">|</span>
+                    <button onclick="toggleModal('gizlilik-modal')" class="hover:text-white transition-colors">Gizlilik Politikası</button>
+                    <span class="text-slate-700 hidden sm:inline">|</span>
+                    <a href="#reklam-ver" class="text-brand-500 hover:text-brand-400 transition-colors">İşletmenizi Ekleyin</a>
                 </div>
             </div>
             
-            <div class="flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 gap-4">
-                <p>&copy; 2026 kizilaylazerepilasyon.com. Tüm hakları saklıdır.</p>
-                <p class="flex items-center gap-1">
-                    <a href="https://instagram.com/noktasosyalmedya" target="_blank" class="text-brand-500 font-bold hover:text-brand-400 transition flex items-center gap-1">
-                        <i class="fab fa-instagram"></i> Nokta Sosyal Medya
+            <div class="flex flex-col md:flex-row justify-between items-center text-sm font-medium text-slate-500 gap-4">
+                <p>© 2026 kizilaylazerepilasyon.com tüm hakları saklıdır.</p>
+                <p class="flex items-center gap-1.5">
+                    <a href="https://instagram.com/noktasosyalmedya" target="_blank" class="text-white hover:text-brand-400 transition-colors flex items-center gap-1.5 bg-slate-800 px-3 py-1.5 rounded-lg">
+                        <i class="fab fa-instagram text-brand-500"></i> Nokta Sosyal Medya
                     </a> 
-                    tarafından tasarlanmıştır.
+                    <span class="ml-1">tarafından tasarlanmıştır.</span>
                 </p>
             </div>
         </div>
     </footer>
 
-    <div id="kvkk-modal" class="hidden fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
-        <div class="bg-white rounded-xl w-full max-w-2xl p-6 relative max-h-[80vh] overflow-y-auto">
-            <button onclick="toggleModal('kvkk-modal')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800"><i class="fas fa-times text-xl"></i></button>
-            <h3 class="text-xl font-bold text-gray-900 mb-4">KVKK Aydınlatma Metni</h3>
-            <div class="text-sm text-gray-600 space-y-3">
-                <p>kizilaylazerepilasyon.com olarak kişisel verilerinizin güvenliğine önem veriyoruz. 6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") uyarınca hazırlanan bu aydınlatma metni ile sizleri bilgilendirmek isteriz.</p>
-                <p>Platformumuz üzerinden toplanan veya işlenen kişisel verileriniz (örn. iletişim formları aracılığıyla iletilen ad, telefon), yalnızca size uygun klinik önerileri sunmak ve rehberlik hizmeti sağlamak amacıyla işlenmektedir.</p>
-                <p>Detaylı haklarınız ve veri politikamız için iletişim kanallarımızdan bize ulaşabilirsiniz.</p>
+    <div id="kvkk-modal" class="hidden fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-3xl w-full max-w-3xl p-8 relative max-h-[85vh] overflow-y-auto shadow-2xl transform scale-95 transition-transform duration-300">
+            <button onclick="toggleModal('kvkk-modal')" class="absolute top-6 right-6 text-slate-400 hover:text-slate-900 bg-slate-100 p-2 rounded-full transition-colors"><i class="fas fa-times text-xl w-6 h-6 flex items-center justify-center"></i></button>
+            <h3 class="text-2xl font-extrabold text-slate-900 mb-6 flex items-center gap-3"><i class="fas fa-lock text-brand-500"></i> KVKK Aydınlatma Metni</h3>
+            <div class="text-sm text-slate-600 space-y-4 font-medium leading-relaxed">
+                <p><strong>Veri Sorumlusu:</strong> kizilaylazerepilasyon.com platformu, 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında veri sorumlusu sıfatıyla hareket etmektedir.</p>
+                <p><strong>İşlenen Veriler:</strong> İletişim formu aracılığıyla iletilen ad-soyad, e-posta adresi ve mesaj içeriği gibi kişisel veriler yalnızca talep işleme amacıyla işlenmektedir.</p>
+                <p><strong>İşleme Amaçları:</strong> Toplanan kişisel veriler; iletişim taleplerine yanıt verilmesi, reklam/ilan başvurularının yönetilmesi ve platform kalitesinin artırılması amacıyla sınırlı olarak kullanılmaktadır.</p>
+                <p><strong>Üçüncü Taraflarla Paylaşım:</strong> Kişisel verileriniz, yasal zorunluluklar dışında herhangi bir üçüncü tarafla paylaşılmamaktadır.</p>
+                <p><strong>Veri Saklama Süresi:</strong> İletişim bilgileri, talep sonuçlandıktan sonra en fazla 1 yıl süreyle saklanmakta; akabinde silinmektedir.</p>
+                <p><strong>Haklarınız (KVKK Md. 11):</strong> Kişisel verilerinize erişim talep etme, düzeltme, silme veya işlemeye itiraz etme haklarına sahipsiniz. Bu haklarınızı kullanmak için iletişim kanallarımızı kullanabilirsiniz.</p>
             </div>
-            <button onclick="toggleModal('kvkk-modal')" class="mt-6 w-full bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-2 rounded-lg transition">Kapat</button>
+            <button onclick="toggleModal('kvkk-modal')" class="mt-8 w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-4 rounded-xl transition-colors">Okudum, Kapat</button>
         </div>
     </div>
 
-    <div id="gizlilik-modal" class="hidden fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
-        <div class="bg-white rounded-xl w-full max-w-2xl p-6 relative max-h-[80vh] overflow-y-auto">
-            <button onclick="toggleModal('gizlilik-modal')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800"><i class="fas fa-times text-xl"></i></button>
-            <h3 class="text-xl font-bold text-gray-900 mb-4">Gizlilik Politikası</h3>
-            <div class="text-sm text-gray-600 space-y-3">
-                <p>Gizliliğiniz bizim için önemlidir. kizilaylazerepilasyon.com ziyaretçilerinden topladığı verileri üçüncü şahıslara izinsiz satmaz veya paylaşmaz.</p>
-                <p>Sitemizde yer alan dış bağlantılar (kliniklerin web siteleri, WhatsApp yönlendirmeleri vb.) kendi gizlilik politikalarına tabidir. Harici sitelerde gerçekleştirdiğiniz işlemlerden platformumuz sorumlu değildir.</p>
+    <div id="gizlilik-modal" class="hidden fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-3xl w-full max-w-3xl p-8 relative max-h-[85vh] overflow-y-auto shadow-2xl transform scale-95 transition-transform duration-300">
+            <button onclick="toggleModal('gizlilik-modal')" class="absolute top-6 right-6 text-slate-400 hover:text-slate-900 bg-slate-100 p-2 rounded-full transition-colors"><i class="fas fa-times text-xl w-6 h-6 flex items-center justify-center"></i></button>
+            <h3 class="text-2xl font-extrabold text-slate-900 mb-6 flex items-center gap-3"><i class="fas fa-file-contract text-brand-500"></i> Gizlilik Politikası</h3>
+            <div class="text-sm text-slate-600 space-y-4 font-medium leading-relaxed">
+                <p><strong>Çerezler (Cookies):</strong> Sitemiz, kullanıcı deneyimini iyileştirmek amacıyla yalnızca zorunlu teknik çerezler kullanmaktadır. Reklam amaçlı çerez kullanılmamaktadır.</p>
+                <p><strong>Google Analytics:</strong> Site ziyaret istatistiklerini anonim olarak takip etmek amacıyla Google Analytics kullanılabilir. Bu süreçte kimliğinizi belirleyen hiçbir veri işlenmez.</p>
+                <p><strong>Harici Bağlantılar:</strong> Sitemizde yer alan WhatsApp, Google Maps ve benzeri harici bağlantılar üçüncü taraf platformlara yönlendirmektedir. Bu platformların gizlilik politikaları kendi şartları çerçevesinde geçerlidir; sitemizin sorumluluğu dışındadır.</p>
+                <p><strong>Veri Güvenliği:</strong> Platformumuz, topladığı kişisel verileri korumak için endüstri standardı güvenlik önlemlerini uygulamaktadır.</p>
+                <p><strong>Değişiklikler:</strong> Gizlilik politikamız gerektiğinde güncellenebilir. Güncel politikaya her zaman bu sayfadan ulaşabilirsiniz.</p>
+                <p><strong>İletişim:</strong> Gizlilik politikasına ilişkin sorularınız için iletişim kanallarımızı kullanabilirsiniz.</p>
             </div>
-            <button onclick="toggleModal('gizlilik-modal')" class="mt-6 w-full bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-2 rounded-lg transition">Kapat</button>
+            <button onclick="toggleModal('gizlilik-modal')" class="mt-8 w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-4 rounded-xl transition-colors">Okudum, Kapat</button>
         </div>
     </div>
 
     <script>
         function toggleModal(modalID){
             const modal = document.getElementById(modalID);
+            const modalContent = modal.querySelector('div');
+            
             if(modal.classList.contains('hidden')){
+                // Açılış
                 modal.classList.remove('hidden');
                 document.body.classList.add('overflow-hidden');
+                // Animasyon için kısa gecikme
+                setTimeout(() => {
+                    modal.classList.remove('opacity-0');
+                    modalContent.classList.remove('scale-95');
+                    modalContent.classList.add('scale-100');
+                }, 10);
             } else {
-                modal.classList.add('hidden');
-                document.body.classList.remove('overflow-hidden');
+                // Kapanış
+                modal.classList.add('opacity-0');
+                modalContent.classList.remove('scale-100');
+                modalContent.classList.add('scale-95');
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                    document.body.classList.remove('overflow-hidden');
+                }, 300); // Tailwind transition süresi ile uyumlu
             }
         }
     </script>

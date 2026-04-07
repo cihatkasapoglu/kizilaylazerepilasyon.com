@@ -534,7 +534,7 @@ function initVisitorCounter() {
     // Güne başlarken saate göre doğal bir sayı belirle (Gece 00:00'dan şu ana geçen dakika * yoğunluk çarpanı)
     const now = new Date();
     const minutesSinceMidnight = (now.getHours() * 60) + now.getMinutes();
-    // Sabah saatlerinde yavaş, öğlen hızlanan kaba bir algoritma (Dakika başı ortalama 0.7 kişi)
+    // Sabah saatlerinde yavaş, öğlen hızlanan kaba bir algoritma (Dakika başı ortalama 0.2 kişi)
     currentCount = Math.floor(minutesSinceMidnight * 0.7) + Math.floor(Math.random() * 20);
     localStorage.setItem('kizilayVisitorCount', JSON.stringify({ date: todayDateStr, count: currentCount }));
   }
@@ -542,9 +542,9 @@ function initVisitorCounter() {
   const counterEl = document.getElementById('dailyVisitorCount');
   counterEl.innerText = currentCount;
 
-  // Sayıyı belirli aralıklarla (rastgele 5 ile 15 saniye arası) gerçekçi şekilde artır
+  // Sayıyı belirli aralıklarla (rastgele 10 ile 20 dakika arası) gerçekçi şekilde artır
   setInterval(() => {
-    // %70 ihtimalle artır (her saniye tık tık artmasın, doğal dursun)
+    // %20 ihtimalle artır (her saniye tık tık artmasın, doğal dursun)
     if (Math.random() > 0.3) {
       // 1 veya 2 kişi ekle
       const increment = Math.floor(Math.random() * 2) + 1;

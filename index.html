@@ -1,455 +1,571 @@
 <!DOCTYPE html>
-<html lang="tr" class="scroll-smooth">
+<html lang="tr" class="scroll-smooth antialiased">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kızılay Lazer Epilasyon | Ankara'nın En Seçkin Rehberi & İlan Portalı</title>
-    <meta name="description" content="Ankara Kızılay'ın en iyi lazer epilasyon merkezlerini karşılaştırın, gerçek müşteri yorumlarını okuyun ve online randevu alın. Bölgenin en prestijli klinik rehberi.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Kızılay Lazer Epilasyon | Ankara'nın Premium Güzellik Rehberi</title>
+    <meta name="description" content="Kızılay'ın en seçkin lazer epilasyon ve estetik merkezlerini karşılaştırın, yorumları okuyun ve VIP randevu oluşturun.">
     
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        medical: {
-                            dark: '#0f172a',    // Derin Lacivert (Güven & Kurumsallık)
-                            gold: '#c5a059',    // Şampanya Altını (Lüks & Estetik)
-                            premium: '#f9f6f0', // Hafif Krem Arka Plan
-                            soft: '#f8fafc'      // Temiz Gri
+                        brand: {
+                            dark: '#0B1121',     // Vantablack/Navy Blend
+                            gold: '#D4AF37',     // Pure Champagne Gold
+                            goldlight: '#F3E5AB',// Soft Gold
+                            surface: '#FAFAFB',  // Off-white
+                            gray: '#8C9BB4'      // Medical Gray
                         }
                     },
                     fontFamily: {
-                        sans: ['Outfit', 'sans-serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
                         serif: ['Playfair Display', 'serif'],
                     },
+                    boxShadow: {
+                        'luxury': '0 20px 40px -15px rgba(212, 175, 55, 0.15)',
+                        'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.07)',
+                    }
                 }
             }
         }
     </script>
     <style>
-        body { background-color: #fdfdfd; color: #1e293b; -webkit-font-smoothing: antialiased; }
-        .premium-gradient-border {
-            border: 2px solid transparent;
-            border-image: linear-gradient(to right, #c5a059, #f9ebcc, #c5a059) 1;
-        }
-        .text-balance { text-wrap: balance; }
-        .glass-morphism {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
+        body { background-color: #FAFAFB; color: #0B1121; }
+        
+        /* Preloader */
+        #preloader { position: fixed; inset: 0; background: #0B1121; z-index: 9999; display: flex; justify-content: center; align-items: center; transition: opacity 0.6s ease; }
+        .loader-ring { border: 3px solid rgba(212, 175, 55, 0.1); border-top-color: #D4AF37; border-radius: 50%; width: 50px; height: 50px; animation: spin 1s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #FAFAFB; }
+        ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 10px; }
+
+        /* Gold Gradient Text */
+        .text-gradient-gold { background: linear-gradient(to right, #D4AF37, #F3E5AB, #D4AF37); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-size: 200% auto; animation: shine 3s linear infinite; }
+        @keyframes shine { to { background-position: 200% center; } }
+
+        /* VIP Border Animation */
+        .vip-border { position: relative; border-radius: 1.5rem; background: linear-gradient(white, white) padding-box, linear-gradient(45deg, #D4AF37, transparent, #D4AF37) border-box; border: 2px solid transparent; }
+        
+        /* App-like Mobile Navbar padding */
+        @media (max-width: 768px) { body { padding-bottom: 80px; } }
     </style>
 </head>
-<body x-data="siteApp()">
+<body x-data="luxuryDirectory()" x-init="initApp()">
 
-    <div class="sticky top-0 z-50 bg-medical-dark text-white border-b border-medical-gold/20 shadow-xl">
-        <div class="container mx-auto px-4 py-3 flex flex-col sm:flex-row justify-between items-center gap-3">
-            <div class="flex items-center gap-3">
-                <span class="relative flex h-3 w-3">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-medical-gold opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-3 w-3 bg-medical-gold"></span>
-                </span>
-                <p class="text-sm md:text-base font-medium tracking-wide">
-                    <span class="font-bold text-medical-gold">kizilaylazerepilasyon.com</span> Domain & Proje SATILIKTIR! <span class="hidden md:inline">(1 Yıl Hosting Dahil)</span>
-                </p>
-            </div>
-            <a href="https://wa.me/905537383806" class="flex items-center gap-2.5 bg-green-600 hover:bg-green-700 text-white text-xs md:text-sm font-bold py-2 px-5 rounded-full transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-green-500/30">
-                <i class="fab fa-whatsapp text-lg"></i> WHATSAPP'TAN BİLGİ AL
-            </a>
+    <div id="preloader">
+        <div class="flex flex-col items-center">
+            <div class="loader-ring mb-4"></div>
+            <div class="text-brand-gold font-serif text-xl tracking-widest uppercase">Kızılay Premium</div>
         </div>
     </div>
 
-    <header class="relative bg-medical-soft py-24 md:py-32 px-4 overflow-hidden border-b border-gray-100">
-        <div class="absolute inset-0 opacity-[0.03]" style="background-image: url('data:image/svg+xml,%3Csvg width=60 height=60 viewBox=0 0 60 60 xmlns=http://www.w3.org/2000/svg%3E%3Cg fill=none fill-rule=evenodd%3E%3Cg fill=%230f172a fill-opacity=1%3E%3Cpath d=M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
-        
-        <div class="container mx-auto text-center max-w-5xl relative z-10">
-            <span class="inline-flex items-center rounded-full bg-medical-gold/10 px-4 py-1.5 text-xs font-semibold text-medical-gold tracking-widest uppercase mb-6 border border-medical-gold/20">
-                ANKARA'NIN MERKEZİNDE GÜZELLİK
-            </span>
-            <h1 class="font-serif text-5xl md:text-7xl font-semibold text-medical-dark mb-8 leading-tight text-balance">
-                Kızılay'ın En Seçkin <span class="text-medical-gold italic px-1">Lazer Epilasyon</span> Merkezlerini Keşfedin.
-            </h1>
-            <p class="text-gray-600 mb-12 text-lg md:text-xl max-w-3xl mx-auto font-light leading-relaxed text-balance">
-                Kliniklerin prestijini ve gerçek kullanıcı puanlarını karşılaştırın, size en uygun uzmanı bulun veya işletmenizi binlerce potansiyel danışana ulaştırın.
-            </p>
-
-            <div class="bg-white p-3 rounded-full shadow-2xl shadow-medical-dark/5 flex flex-col md:flex-row gap-2 max-w-3xl mx-auto border border-gray-100 transform -translate-y-2 hover:translate-y-0 transition-transform duration-500">
-                <div class="relative flex-1">
-                    <i class="fas fa-search absolute left-5 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                    <input type="text" placeholder="Firma Adı veya Hizmet (Örn: Buz Lazer, İğneli Epilasyon)" class="w-full pl-14 pr-6 py-4 rounded-full focus:outline-none focus:ring-2 focus:ring-medical-gold/30 text-gray-800 placeholder:text-gray-400">
+    <div class="fixed top-0 w-full z-50 bg-brand-dark border-b border-brand-gold/20 shadow-2xl transition-all duration-300" id="sales-banner">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-3">
+                <div class="flex items-center gap-4">
+                    <div class="relative flex h-4 w-4">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-gold opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-4 w-4 bg-brand-gold"></span>
+                    </div>
+                    <div class="text-white text-xs md:text-sm font-medium">
+                        <span class="text-gradient-gold font-bold tracking-wider">KIZILAYLAZEREPILASYON.COM</span>
+                        <span class="opacity-80 ml-2">PROJESİ SATILIKTIR (1 Yıl Domain & Premium Hosting Hediye)</span>
+                    </div>
                 </div>
-                <button class="bg-medical-dark hover:bg-medical-dark/90 text-white font-bold py-4 px-10 rounded-full transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-medical-dark/20">
-                    Merkez Bul <i class="fas fa-arrow-right text-sm text-medical-gold"></i>
+                <a href="https://wa.me/905537383806" class="group relative inline-flex items-center justify-center px-6 py-2 text-sm font-bold text-white transition-all duration-200 bg-green-600 rounded-full hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600">
+                    <i class="fab fa-whatsapp mr-2 text-lg group-hover:scale-110 transition-transform"></i> Teklif Al: 0553 738 38 06
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <header class="relative pt-32 pb-24 md:pt-48 md:pb-32 overflow-hidden bg-white">
+        <div class="absolute inset-0 z-0 opacity-[0.02] bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-brand-gold/5 to-transparent z-0"></div>
+        
+        <div class="container mx-auto px-4 relative z-10 text-center max-w-5xl">
+            <div data-aos="fade-down" data-aos-duration="1000">
+                <span class="inline-block py-1.5 px-4 rounded-full bg-brand-gold/10 border border-brand-gold/30 text-brand-gold text-xs font-bold tracking-widest uppercase mb-6">
+                    <i class="fas fa-gem mr-2"></i> Ankara'nın En Prestijli Rehberi
+                </span>
+                <h1 class="font-serif text-5xl md:text-7xl font-bold text-brand-dark leading-tight mb-6">
+                    Kızılay'da Kusursuz <br/>
+                    <span class="text-gradient-gold italic">Pürüzsüzlüğe</span> Adım Atın.
+                </h1>
+                <p class="text-brand-gray text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed mb-10">
+                    Gerçek danışan yorumları, teknoloji karşılaştırmaları ve VIP kliniklerle Kızılay'ın en seçkin lazer epilasyon merkezlerini keşfedin.
+                </p>
+            </div>
+
+            <div class="bg-white/80 backdrop-blur-xl p-3 rounded-2xl md:rounded-full shadow-luxury border border-white max-w-4xl mx-auto flex flex-col md:flex-row gap-3" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <div class="relative flex-1 flex items-center px-4 bg-brand-surface rounded-xl md:rounded-full border border-gray-100">
+                    <i class="fas fa-search text-brand-gold text-lg"></i>
+                    <input type="text" x-model="searchQuery" placeholder="Klinik adı veya teknoloji arayın (Örn: Buz Lazer)" class="w-full bg-transparent border-none focus:ring-0 py-4 px-4 text-brand-dark placeholder:text-gray-400 font-medium">
+                </div>
+                <button class="bg-brand-dark text-white px-10 py-4 rounded-xl md:rounded-full font-bold hover:bg-brand-gold transition-colors duration-300 shadow-lg flex items-center justify-center gap-2">
+                    Keşfet <i class="fas fa-arrow-right"></i>
                 </button>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-3 mt-8" data-aos="fade-in" data-aos-delay="400">
+                <template x-for="category in categories">
+                    <button @click="activeCategory = category" 
+                            :class="activeCategory === category ? 'bg-brand-gold text-white border-brand-gold' : 'bg-white text-brand-gray border-gray-200 hover:border-brand-gold hover:text-brand-gold'"
+                            class="px-5 py-2 rounded-full text-sm font-medium border transition-all duration-300 shadow-sm"
+                            x-text="category">
+                    </button>
+                </template>
             </div>
         </div>
     </header>
 
-    <section class="py-24 px-4 container mx-auto">
-        <div class="flex flex-col md:flex-row justify-between items-center mb-16 gap-6 border-b border-gray-100 pb-10">
-            <div>
-                <h2 class="font-serif text-4xl font-semibold text-medical-dark">Öne Çıkan Klinikler</h2>
-                <p class="text-gray-500 mt-3 text-lg font-light">Kızılay bölgesinin en prestijli ve yüksek memnuniyet oranlı işletmeleri.</p>
-            </div>
-            <div class="flex gap-3">
-                <button class="bg-medical-gold text-white px-6 py-3 rounded-full font-semibold text-sm shadow-md hover:bg-medical-gold/90 transition-colors">Tümünü Filtrele</button>
-                <button class="bg-gray-100 text-medical-dark px-6 py-3 rounded-full font-semibold text-sm hover:bg-gray-200 transition-colors">Haritada Gör</button>
+    <div class="border-y border-gray-100 bg-white">
+        <div class="container mx-auto px-4 py-10">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-gray-100 text-center">
+                <div data-aos="zoom-in" data-aos-delay="0">
+                    <div class="text-4xl font-serif font-bold text-brand-dark mb-1">40+</div>
+                    <div class="text-sm text-brand-gray font-medium uppercase tracking-wider">Seçkin Klinik</div>
+                </div>
+                <div data-aos="zoom-in" data-aos-delay="100">
+                    <div class="text-4xl font-serif font-bold text-brand-gold mb-1">5.000+</div>
+                    <div class="text-sm text-brand-gray font-medium uppercase tracking-wider">Aylık Danışan</div>
+                </div>
+                <div data-aos="zoom-in" data-aos-delay="200">
+                    <div class="text-4xl font-serif font-bold text-brand-dark mb-1">%100</div>
+                    <div class="text-sm text-brand-gray font-medium uppercase tracking-wider">Gerçek Yorum</div>
+                </div>
+                <div data-aos="zoom-in" data-aos-delay="300">
+                    <div class="text-4xl font-serif font-bold text-brand-gold mb-1">1. Sınıf</div>
+                    <div class="text-sm text-brand-gray font-medium uppercase tracking-wider">Teknolojiler</div>
+                </div>
             </div>
         </div>
+    </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+    <section class="py-24 bg-brand-surface relative">
+        <div class="container mx-auto px-4 text-center max-w-4xl">
+            <span class="text-brand-gold font-bold tracking-widest uppercase text-xs">REHBER KULLANIMI</span>
+            <h2 class="font-serif text-3xl md:text-4xl font-bold text-brand-dark mt-4 mb-16">Pürüzsüz Bir Cilde Ulaşmanın 3 Adımı</h2>
             
-            <div class="premium-gradient-border bg-white rounded-3xl overflow-hidden relative group shadow-xl shadow-medical-gold/5 transform hover:-translate-y-2 transition-all duration-500">
-                <div class="absolute top-5 right-5 bg-medical-dark text-medical-gold text-xs font-bold px-4 py-1.5 rounded-full z-10 shadow-lg border border-medical-gold/30 flex items-center gap-1.5 tracking-wider">
-                    <i class="fas fa-crown"></i> VIP KLİNİK
-                </div>
-                
-                <div class="h-64 overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=800&auto=format&fit=crop" alt="Premium Lazer & Estetik" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                </div>
+            <div class="grid md:grid-cols-3 gap-12 relative">
+                <div class="hidden md:block absolute top-1/2 left-[15%] right-[15%] h-0.5 bg-gradient-to-r from-brand-gold/10 via-brand-gold/50 to-brand-gold/10 -translate-y-1/2 z-0"></div>
 
-                <div class="p-8 relative">
-                    <div class="absolute -top-12 left-8 w-20 h-20 rounded-full border-4 border-white shadow-xl overflow-hidden bg-white">
-                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover">
-                    </div>
+                <div class="relative z-10 bg-white p-8 rounded-3xl shadow-luxury" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-16 h-16 mx-auto bg-brand-dark text-brand-gold rounded-2xl flex items-center justify-center text-2xl font-bold mb-6 rotate-3 hover:rotate-0 transition-transform">1</div>
+                    <h3 class="text-xl font-bold mb-3 text-brand-dark">Karşılaştırın</h3>
+                    <p class="text-gray-500 text-sm font-light leading-relaxed">Kızılay'daki kliniklerin cihazlarını, fiyatlarını ve hijyen standartlarını tek ekranda inceleyin.</p>
+                </div>
+                <div class="relative z-10 bg-white p-8 rounded-3xl shadow-luxury" data-aos="fade-up" data-aos-delay="150">
+                    <div class="w-16 h-16 mx-auto bg-brand-gold text-white rounded-2xl flex items-center justify-center text-2xl font-bold mb-6 -rotate-3 hover:rotate-0 transition-transform">2</div>
+                    <h3 class="text-xl font-bold mb-3 text-brand-dark">Yorumları Okuyun</h3>
+                    <p class="text-gray-500 text-sm font-light leading-relaxed">Daha önce hizmet almış danışanların şeffaf ve onaylı geri bildirimleriyle doğru kararı verin.</p>
+                </div>
+                <div class="relative z-10 bg-white p-8 rounded-3xl shadow-luxury" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 mx-auto bg-brand-dark text-brand-gold rounded-2xl flex items-center justify-center text-2xl font-bold mb-6 rotate-3 hover:rotate-0 transition-transform">3</div>
+                    <h3 class="text-xl font-bold mb-3 text-brand-dark">Randevu Alın</h3>
+                    <p class="text-gray-500 text-sm font-light leading-relaxed">Seçtiğiniz VIP kliniğe doğrudan WhatsApp üzerinden ulaşın ve ücretsiz ön görüşme ayarlayın.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                    <div class="flex items-center gap-3 mt-8 mb-3">
-                        <div class="flex text-medical-gold text-sm gap-0.5">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+    <section class="py-24 bg-white" id="klinikler">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12" data-aos="fade-right">
+                <div>
+                    <h2 class="font-serif text-4xl font-bold text-brand-dark">Öne Çıkan Klinikler</h2>
+                    <p class="text-gray-500 mt-2 font-light">Seçtiğiniz filtreye (<span class="font-medium text-brand-gold" x-text="activeCategory"></span>) göre Kızılay'ın en iyileri.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <template x-for="clinic in filteredClinics" :key="clinic.id">
+                    <div class="bg-white rounded-3xl overflow-hidden group transition-all duration-500 hover:-translate-y-2 hover:shadow-luxury"
+                         :class="clinic.isVIP ? 'vip-border shadow-lg' : 'border border-gray-100 shadow-sm'" data-aos="fade-up">
+                        
+                        <div x-show="clinic.isVIP" class="absolute top-4 right-4 bg-brand-dark text-brand-gold text-[10px] font-bold px-4 py-2 rounded-full z-10 shadow-lg tracking-widest flex items-center gap-2 uppercase">
+                            <i class="fas fa-crown"></i> VIP Sponsor
                         </div>
-                        <span class="text-gray-400 text-xs font-medium tracking-wide">(128 Gerçek Yorum)</span>
+
+                        <div class="h-60 overflow-hidden relative">
+                            <img :src="clinic.image" :alt="clinic.name" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent"></div>
+                            
+                            <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur px-3 py-1.5 rounded-full flex items-center gap-2 shadow-sm">
+                                <i class="fas fa-star text-brand-gold text-xs"></i>
+                                <span class="font-bold text-sm text-brand-dark" x-text="clinic.rating"></span>
+                                <span class="text-xs text-gray-500" x-text="'(' + clinic.reviews + ')'"></span>
+                            </div>
+                        </div>
+
+                        <div class="p-8">
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <template x-for="tag in clinic.tags">
+                                    <span class="text-[10px] uppercase tracking-wider font-bold text-brand-gold bg-brand-gold/10 px-2 py-1 rounded-md" x-text="tag"></span>
+                                </template>
+                            </div>
+                            
+                            <h3 class="font-serif text-2xl font-bold text-brand-dark mb-2" x-text="clinic.name"></h3>
+                            <p class="text-gray-500 text-sm mb-6 font-light truncate"><i class="fas fa-map-pin text-brand-gold mr-2"></i><span x-text="clinic.address"></span></p>
+                            
+                            <div class="grid grid-cols-2 gap-3 pt-6 border-t border-gray-100">
+                                <a href="https://wa.me/905537383806" class="w-full bg-brand-surface hover:bg-brand-gold/10 text-brand-dark hover:text-brand-gold font-bold py-3 rounded-xl text-center text-xs transition-colors border border-gray-200 flex flex-col items-center justify-center gap-1">
+                                    <i class="fab fa-whatsapp text-lg"></i> Randevu
+                                </a>
+                                <a href="#" class="w-full bg-brand-dark hover:bg-brand-gold text-white font-bold py-3 rounded-xl text-center text-xs transition-colors flex flex-col items-center justify-center gap-1 shadow-md">
+                                    <i class="fas fa-route text-lg"></i> Yol Tarifi
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="font-serif text-2xl font-semibold text-medical-dark mb-3 group-hover:text-medical-gold transition-colors">Premium Lazer & Estetik Merkezi</h3>
-                    <p class="text-gray-500 text-sm mb-6 font-light leading-relaxed"><i class="fas fa-map-marker-alt mr-2 text-medical-gold"></i> Meşrutiyet Cad. No:42 Kızılay, Ankara</p>
+                </template>
+                
+                <div x-show="filteredClinics.length === 0" class="col-span-full text-center py-20">
+                    <div class="w-24 h-24 mx-auto bg-gray-100 rounded-full flex items-center justify-center text-gray-400 text-3xl mb-4">
+                        <i class="fas fa-search-minus"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark">Sonuç Bulunamadı</h3>
+                    <p class="text-gray-500 mt-2">Aradığınız kritere uygun klinik bulunmuyor. Lütfen aramayı genişletin.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="relative py-32 bg-brand-dark overflow-hidden text-white border-y border-brand-gold/30">
+        <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-gold/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3"></div>
+        <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-900/20 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/4"></div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-20" data-aos="fade-up">
+                <i class="fas fa-handshake text-5xl text-brand-gold mb-6"></i>
+                <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">Kızılay'ın Zirvesinde Yerinizi Alın</h2>
+                <p class="text-gray-400 text-lg font-light leading-relaxed">Lazer epilasyon arayan binlerce sıcak potansiyel müşteriye doğrudan ulaşın. Onaylanmış işletme rozeti ile güven verin, randevu takviminizi doldurun.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="bg-white/5 backdrop-blur-lg border border-white/10 p-8 rounded-3xl flex flex-col hover:-translate-y-2 transition-transform" data-aos="fade-up" data-aos-delay="0">
+                    <h3 class="text-brand-gray font-bold tracking-widest text-sm uppercase mb-2">Standart Kayıt</h3>
+                    <div class="font-serif text-3xl font-bold text-white mb-6">Dizin İlanı</div>
+                    <ul class="space-y-4 mb-10 text-sm font-light text-gray-300 flex-1">
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i> Temel Firma Profili</li>
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i> İletişim Bilgileri</li>
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i> Kategori Filtreleme</li>
+                    </ul>
+                    <a href="https://instagram.com/noktasosyalmedya" target="_blank" class="w-full py-4 rounded-xl font-bold text-sm bg-white/10 hover:bg-white/20 transition-colors text-center border border-white/10">Teklif İste</a>
+                </div>
+
+                <div class="bg-gradient-to-b from-brand-gold/20 to-white/5 backdrop-blur-lg border border-brand-gold/50 p-8 rounded-3xl flex flex-col transform md:-translate-y-6 shadow-2xl relative" data-aos="fade-up" data-aos-delay="150">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-brand-gold text-brand-dark text-xs font-black px-6 py-2 rounded-full uppercase tracking-widest shadow-lg">En Çok Tercih Edilen</div>
+                    <h3 class="text-brand-gold font-bold tracking-widest text-sm uppercase mb-2 mt-4">VIP Klinik</h3>
+                    <div class="font-serif text-3xl font-bold text-white mb-6">Vitrin Sponsoru</div>
+                    <ul class="space-y-4 mb-10 text-sm font-light text-gray-100 flex-1">
+                        <li><i class="fas fa-star text-brand-gold mr-2"></i> Altın Çerçeveli Kutu</li>
+                        <li><i class="fas fa-star text-brand-gold mr-2"></i> Arama Sonuçlarında Üstte</li>
+                        <li><i class="fas fa-star text-brand-gold mr-2"></i> Doğrulanmış İşletme Rozeti</li>
+                        <li><i class="fas fa-star text-brand-gold mr-2"></i> WhatsApp Butonu</li>
+                    </ul>
+                    <a href="https://instagram.com/noktasosyalmedya" target="_blank" class="w-full py-4 rounded-xl font-bold text-sm bg-brand-gold text-brand-dark hover:bg-white transition-colors text-center shadow-[0_0_20px_rgba(212,175,55,0.4)]">Öncelikli Teklif İste</a>
+                </div>
+
+                <div class="bg-white/5 backdrop-blur-lg border border-white/10 p-8 rounded-3xl flex flex-col hover:-translate-y-2 transition-transform" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-brand-gray font-bold tracking-widest text-sm uppercase mb-2">Kurumsal</h3>
+                    <div class="font-serif text-3xl font-bold text-white mb-6">Banner Reklam</div>
+                    <ul class="space-y-4 mb-10 text-sm font-light text-gray-300 flex-1">
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i> Sayfa Üstü Sabit Banner</li>
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i> Tüm Sayfalarda Görünüm</li>
+                        <li><i class="fas fa-check text-brand-gold mr-2"></i> %100 Marka Bilinirliği</li>
+                    </ul>
+                    <a href="https://instagram.com/noktasosyalmedya" target="_blank" class="w-full py-4 rounded-xl font-bold text-sm bg-white/10 hover:bg-white/20 transition-colors text-center border border-white/10">Teklif İste</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-brand-surface">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="text-center mb-16" data-aos="fade-down">
+                <span class="text-brand-gold font-bold tracking-widest uppercase text-xs">MÜŞTERİ DENEYİMLERİ</span>
+                <h2 class="font-serif text-4xl font-bold text-brand-dark mt-4">Sizden Gelenler</h2>
+                <p class="text-gray-500 mt-4 max-w-2xl mx-auto font-light">Gizlilik politikamız gereği klinik isimleri maskelenmiştir. Tüm yorumlar moderasyon onayından geçmektedir.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-12 items-start">
+                
+                <div class="lg:col-span-1 bg-white p-8 rounded-3xl shadow-luxury border border-gray-100" data-aos="fade-right">
+                    <h3 class="font-serif text-2xl font-bold text-brand-dark mb-6">Deneyimini Paylaş</h3>
+                    <div class="space-y-5">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Adınız Soyadınız (Gizlenecek)</label>
+                            <input type="text" x-model="newReview.author" class="w-full bg-brand-surface p-4 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-gold text-sm font-medium">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Hizmet Puanınız</label>
+                            <div class="flex text-gray-300 text-2xl gap-2 cursor-pointer">
+                                <template x-for="i in 5">
+                                    <i class="fa-star transition-colors" :class="i <= newReview.rating ? 'fas text-brand-gold' : 'far'" @click="newReview.rating = i"></i>
+                                </template>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Yorumunuz</label>
+                            <textarea x-model="newReview.comment" class="w-full bg-brand-surface p-4 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-gold h-32 text-sm font-light resize-none"></textarea>
+                        </div>
+                        <button @click="submitReview()" class="w-full bg-brand-dark text-white font-bold py-4 rounded-xl hover:bg-brand-gold transition-colors flex justify-center items-center gap-2 shadow-md">
+                            <i class="fas fa-paper-plane"></i> Yorumu Gönder
+                        </button>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-2 grid md:grid-cols-2 gap-6" data-aos="fade-left">
+                    <template x-for="review in reviews.slice(0, 4)" :key="review.id">
+                        <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 relative">
+                            <i class="fas fa-quote-right absolute top-6 right-6 text-4xl text-gray-50 opacity-50"></i>
+                            <div class="flex text-brand-gold text-xs gap-1 mb-4">
+                                <template x-for="i in 5"><i :class="i <= review.rating ? 'fas fa-star' : 'far fa-star'"></i></template>
+                            </div>
+                            <p class="text-gray-600 font-light italic text-sm leading-relaxed mb-6" x-text="'&quot;' + review.comment + '&quot;'"></p>
+                            <div class="flex items-center gap-3 border-t border-gray-50 pt-4">
+                                <div class="w-10 h-10 rounded-full bg-brand-dark/5 flex items-center justify-center text-brand-dark font-bold text-sm" x-text="review.author.charAt(0)"></div>
+                                <div>
+                                    <div class="text-sm font-bold text-brand-dark" x-text="review.author"></div>
+                                    <div class="text-[10px] text-brand-gray tracking-wider uppercase">Onaylı Danışan</div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white border-y border-gray-100">
+        <div class="container mx-auto px-4 max-w-6xl">
+            
+            <div class="grid lg:grid-cols-2 gap-16">
+                <div data-aos="fade-up">
+                    <span class="text-brand-gold font-bold tracking-widest uppercase text-xs">AKLINIZA TAKILANLAR</span>
+                    <h2 class="font-serif text-3xl font-bold text-brand-dark mt-3 mb-8">Sıkça Sorulan Sorular</h2>
                     
-                    <div class="grid grid-cols-2 gap-4 mt-8 pt-6 border-t border-gray-100">
-                        <a href="https://wa.me/905537383806" class="bg-medical-premium hover:bg-medical-gold/10 text-medical-gold font-bold py-3.5 px-3 rounded-xl text-center text-xs transition-colors border border-medical-gold/20 flex items-center justify-center gap-1.5">
-                            <i class="fab fa-whatsapp text-sm"></i> WhatsApp Randevu
-                        </a>
-                        <a href="#" class="bg-medical-dark hover:bg-black text-white font-bold py-3.5 px-3 rounded-xl text-center text-xs transition-colors shadow-lg shadow-medical-dark/20 flex items-center justify-center gap-1.5">
-                            <i class="fas fa-directions text-sm text-medical-gold"></i> Yol Tarifi Al
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 group">
-                <div class="h-64 overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=800&auto=format&fit=crop" alt="Buz Lazer Kızılay" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                </div>
-                <div class="p-8 relative">
-                    <div class="absolute -top-12 left-8 w-20 h-20 rounded-full border-4 border-white shadow-lg overflow-hidden bg-white">
-                        <div class="w-full h-full bg-medical-soft flex items-center justify-center text-medical-dark font-bold text-2xl">B</div>
-                    </div>
-                    <div class="flex items-center gap-3 mt-8 mb-3">
-                        <div class="flex text-medical-gold text-sm gap-0.5">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star text-gray-300"></i>
-                        </div>
-                        <span class="text-gray-400 text-xs">(85 Yorum)</span>
-                    </div>
-                    <h3 class="font-serif text-2xl font-semibold text-medical-dark mb-3 group-hover:text-medical-gold transition-colors">Buz Lazer Kızılay Şubesi</h3>
-                    <p class="text-gray-500 text-sm mb-6 font-light"><i class="fas fa-map-marker-alt mr-2 text-medical-gold"></i> Karanfil Sokak, No:15 Kızılay</p>
-                    <div class="grid grid-cols-2 gap-4 mt-8 pt-6 border-t border-gray-100">
-                        <a href="#" class="bg-gray-100 text-gray-800 font-bold py-3.5 px-3 rounded-xl text-center text-xs hover:bg-gray-200 Transition">WhatsApp</a>
-                        <a href="#" class="bg-gray-100 text-gray-800 font-bold py-3.5 px-3 rounded-xl text-center text-xs hover:bg-gray-200 Transition">Yol Tarifi</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 group">
-                <div class="h-64 overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?q=80&w=800&auto=format&fit=crop" alt="Kızılay Güzellik" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                </div>
-                <div class="p-8 relative">
-                    <div class="absolute -top-12 left-8 w-20 h-20 rounded-full border-4 border-white shadow-lg overflow-hidden bg-white">
-                        <div class="w-full h-full bg-medical-premium flex items-center justify-center text-medical-gold font-bold text-2xl">K</div>
-                    </div>
-                    <div class="flex items-center gap-3 mt-8 mb-3">
-                        <div class="flex text-medical-gold text-sm gap-0.5">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <span class="text-gray-400 text-xs">(64 Yorum)</span>
-                    </div>
-                    <h3 class="font-serif text-2xl font-semibold text-medical-dark mb-3 group-hover:text-medical-gold transition-colors">Kızılay Güzellik Akademisi</h3>
-                    <p class="text-gray-500 text-sm mb-6 font-light"><i class="fas fa-map-marker-alt mr-2 text-medical-gold"></i> Atatürk Bulvarı, No:115 Kızılay</p>
-                    <div class="grid grid-cols-2 gap-4 mt-8 pt-6 border-t border-gray-100">
-                        <a href="#" class="bg-gray-100 text-gray-800 font-bold py-3.5 px-3 rounded-xl text-center text-xs hover:bg-gray-200 Transition">WhatsApp</a>
-                        <a href="#" class="bg-gray-100 text-gray-800 font-bold py-3.5 px-3 rounded-xl text-center text-xs hover:bg-gray-200 Transition">Yol Tarifi</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-medical-dark py-24 px-4 text-white overflow-hidden relative border-y-2 border-medical-gold/20">
-        <div class="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1598454125219-2d19f2b9dd5b?q=80&w=1600&auto=format&fit=crop')] bg-cover bg-center"></div>
-        
-        <div class="container mx-auto grid lg:grid-cols-5 items-center gap-16 relative z-10">
-            <div class="lg:col-span-2">
-                <span class="text-medical-gold font-bold tracking-widest uppercase text-sm mb-4 block">B2B PARTNERLİK PROĞRAMI</span>
-                <h2 class="font-serif text-4xl md:text-5xl font-semibold mb-8 italic leading-tight text-balance">Kızılay'da lazer epilasyon arayan danışanlar sizi bekliyor.</h2>
-                <p class="text-gray-300 mb-10 text-lg font-light leading-relaxed">Portala kaydolun, Kızılay bölgesindeki yerel aramaların %90'ına doğrudan ulaşın. Randevu trafiğinizi ve marka prestijinizi artırın.</p>
-                <div class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10 max-w-sm">
-                    <i class="fas fa-user-check text-4xl text-medical-gold"></i>
-                    <div>
-                        <p class="text-2xl font-bold">+20 <span class="text-sm font-normal text-gray-300">Firma</span></p>
-                        <p class="text-sm text-gray-400 font-light">Aktif Reklam Vererek Büyüyor.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-white text-medical-dark p-8 rounded-2xl flex flex-col shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100">
-                    <h4 class="font-bold text-lg uppercase tracking-wider text-medical-gold mb-2">Standart</h4>
-                    <p class="text-gray-500 text-sm mb-6 flex-1 font-light">Dizin listesinde temel görünürlük.</p>
-                    <a href="https://instagram.com/noktasosyalmedya" target="_blank" class="w-full text-center bg-medical-soft text-medical-dark px-6 py-3 rounded-full font-bold text-sm hover:bg-gray-200 transition">Teklif Al</a>
-                </div>
-                
-                <div class="premium-gradient-border bg-white text-medical-dark p-8 rounded-2xl flex flex-col shadow-2xl transform hover:-translate-y-3 transition-all duration-500 scale-105 relative z-10">
-                    <div class="absolute -top-4 -right-4 bg-medical-gold text-white text-xs font-black px-4 py-1.5 rounded-full shadow-lg">POPÜLER</div>
-                    <h4 class="font-bold text-xl uppercase tracking-wider text-medical-dark mb-2">Vitrin (VIP)</h4>
-                    <p class="text-medical-dark text-sm mb-6 flex-1 font-medium">Ana sayfada ilk sırada, altın çerçeve ile yer alın.</p>
-                    <a href="https://instagram.com/noktasosyalmedya" target="_blank" class="w-full text-center bg-medical-dark text-white px-6 py-3 rounded-full font-bold text-sm shadow-md hover:bg-black transition">Teklif Al</a>
-                </div>
-                
-                <div class="bg-white text-medical-dark p-8 rounded-2xl flex flex-col shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-100">
-                    <h4 class="font-bold text-lg uppercase tracking-wider text-medical-gold mb-2">Banner</h4>
-                    <p class="text-gray-500 text-sm mb-6 flex-1 font-light">Tüm sayfalarda üst kısımda marka reklamı.</p>
-                    <a href="https://instagram.com/noktasosyalmedya" target="_blank" class="w-full text-center bg-medical-soft text-medical-dark px-6 py-3 rounded-full font-bold text-sm hover:bg-gray-200 transition">Teklif Al</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-24 px-4 container mx-auto">
-        <div class="text-center mb-16 max-w-2xl mx-auto">
-            <span class="text-medical-gold font-semibold tracking-widest uppercase text-sm">GÜZELLİK & BAKIM REHBERİ</span>
-            <h2 class="font-serif text-4xl md:text-5xl font-semibold text-medical-dark mt-4">Lazer Epilasyon Hakkında Her Şey</h2>
-            <p class="text-gray-500 mt-5 text-lg font-light leading-relaxed">Kızılay'da hizmet almadan önce bilmeniz gereken uzman görüşleri, teknoloji karşılaştırmaları ve fiyat analizleri.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            <article class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 group">
-                <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=800&auto=format&fit=crop" alt="Kızılay Lazer Fiyatları" class="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-700">
-                <div class="p-8">
-                    <span class="inline-flex items-center rounded-full bg-medical-premium px-3 py-1 text-xs font-medium text-medical-gold border border-medical-gold/20 mb-4">Piyasa Analizi 2026</span>
-                    <h3 class="font-serif text-2xl font-semibold text-medical-dark mb-4 group-hover:text-medical-gold transition-colors">Kızılay Lazer Epilasyon Fiyatları: 2026 Güncel Rehber</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-6 italic text-justify font-light">Ankara Kızılay bölgesinde lazer epilasyon fiyatları kullanılan teknolojiye (Buz Lazer, Alexandrite) ve bölge sayısına göre değişiklik göstermektedir. 2026 yılı güncel paket fiyatlarını etkileyen en önemli faktör kliniklerin sunduğu teknoloji ve hizmet kalitesidir...</p>
-                    <a href="#" class="text-medical-gold font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">Devamını Oku <i class="fas fa-chevron-right text-xs"></i></a>
-                </div>
-            </article>
-
-            <article class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 group">
-                <img src="https://images.unsplash.com/photo-1606105961732-6332674f4ee6?q=80&w=800&auto=format&fit=crop" alt="Buz Lazer Alexandrite" class="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-700">
-                <div class="p-8">
-                    <span class="inline-flex items-center rounded-full bg-medical-premium px-3 py-1 text-xs font-medium text-medical-gold border border-medical-gold/20 mb-4">Teknoloji Karşılaştırması</span>
-                    <h3 class="font-serif text-2xl font-semibold text-medical-dark mb-4 group-hover:text-medical-gold transition-colors">Buz Lazer mi, Alexandrite mı? Hangi Cilt Tipine Hangisi?</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-6 italic text-justify font-light">Kızılay güzellik merkezlerinde en çok sorulan soruların başında gelen teknoloji farkları, tüy yapınıza ve cilt renginize göre belirlenmelidir. Acısız bir deneyim ve dört mevsim uygulama kolaylığı için Buz Lazer teknolojisi Kızılay'da öne çıkarken...</p>
-                    <a href="#" class="text-medical-gold font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">Devamını Oku <i class="fas fa-chevron-right text-xs"></i></a>
-                </div>
-            </article>
-
-            <article class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 group">
-                <img src="https://images.unsplash.com/photo-1596704017254-9b121068fb31?q=80&w=800&auto=format&fit=crop" alt="Lazer Epilasyon Öncesi" class="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-700">
-                <div class="p-8">
-                    <span class="inline-flex items-center rounded-full bg-medical-premium px-3 py-1 text-xs font-medium text-medical-gold border border-medical-gold/20 mb-4">Uzman Görüşü</span>
-                    <h3 class="font-serif text-2xl font-semibold text-medical-dark mb-4 group-hover:text-medical-gold transition-colors">Lazer Epilasyon Öncesi ve Sonrası Dikkat Edilmesi Gerekenler</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-6 italic text-justify font-light">Lazer seansınızdan maksimum verim almak ve cildinizi korumak için operasyon öncesi hazırlık çok kritiktir. Seansa gitmeden en az 4 hafta önce tüy alma yöntemlerini (ağda, cımbız vb.) bırakmanız gerekmektedir. Kızılay'daki kliniklerde uygulanan profesyonel protokoller hakkında...</p>
-                    <a href="#" class="text-medical-gold font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">Devamını Oku <i class="fas fa-chevron-right text-xs"></i></a>
-                </div>
-            </article>
-        </div>
-    </section>
-
-    <section class="bg-medical-soft py-24 px-4 border-y border-gray-100">
-        <div class="container mx-auto">
-            <div class="text-center mb-16 max-w-3xl mx-auto overflow-hidden">
-                <span class="text-medical-gold font-semibold tracking-widest uppercase text-sm">ŞEFFAF DENEYİMLER</span>
-                <h2 class="font-serif text-4xl md:text-5xl font-semibold text-medical-dark mt-4">Kullanıcılarımız Neler Diyor?</h2>
-                <p class="text-gray-500 mt-5 text-lg font-light leading-relaxed">Platformumuz üzerinden Kızılay'da hizmet alan danışanların tarafsız geri bildirimleri. (Gizlilik gereği firma isimleri maskelenmiştir).</p>
-                
-                <div class="mt-12 relative group" x-data="{ active: 0, count: reviews.length }" x-init="setInterval(() => active = (active + 1) % count, 5000)">
-                    <div class="flex transition-transform duration-700 ease-in-out" :style="'transform: translateX(-' + (active * 100) + '%)'">
-                        <template x-for="review in reviews" :key="review.id">
-                            <div class="min-w-full px-4">
-                                <div class="bg-white p-10 rounded-3xl shadow-2xl shadow-medical-dark/5 border border-gray-100 max-w-2xl mx-auto relative">
-                                    <i class="fas fa-quote-left absolute top-8 left-8 text-6xl text-medical-gold/10"></i>
-                                    <div class="flex text-yellow-400 mb-6 text-sm gap-0.5 justify-center relative z-10">
-                                        <template x-for="i in 5">
-                                            <i :class="i <= review.rating ? 'fas fa-star' : 'far fa-star'"></i>
-                                        </template>
-                                    </div>
-                                    <p class="text-gray-700 italic text-lg mb-8 leading-relaxed font-light relative z-10 text-balance">"<span x-text="review.comment"></span>"</p>
-                                    <div class="flex items-center gap-4 justify-center border-t border-gray-100 pt-6 relative z-10">
-                                        <div class="w-10 h-10 rounded-full bg-medical-dark flex items-center justify-center text-medical-gold font-bold text-sm border border-medical-gold/30" x-text="review.author[0]"></div>
-                                        <span class="text-sm font-semibold text-medical-dark tracking-wide" x-text="review.author"></span>
-                                    </div>
+                    <div class="space-y-4">
+                        <template x-for="(faq, index) in faqs" :key="index">
+                            <div class="border border-gray-100 rounded-2xl overflow-hidden bg-brand-surface">
+                                <button @click="activeFaq === index ? activeFaq = null : activeFaq = index" class="w-full flex justify-between items-center p-6 text-left font-bold text-brand-dark focus:outline-none">
+                                    <span x-text="faq.q" class="text-sm md:text-base"></span>
+                                    <i class="fas fa-chevron-down text-brand-gold transition-transform duration-300" :class="activeFaq === index ? 'rotate-180' : ''"></i>
+                                </button>
+                                <div x-show="activeFaq === index" x-collapse x-transition>
+                                    <div class="p-6 pt-0 text-gray-500 font-light text-sm leading-relaxed border-t border-gray-100 mt-2" x-text="faq.a"></div>
                                 </div>
                             </div>
                         </template>
                     </div>
-                    <button @click="active = (active - 1 + count) % count" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 p-3 rounded-full shadow-lg text-medical-dark opacity-0 group-hover:opacity-100 transition-opacity"><i class="fas fa-chevron-left"></i></button>
-                    <button @click="active = (active + 1) % count" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 p-3 rounded-full shadow-lg text-medical-dark opacity-0 group-hover:opacity-100 transition-opacity"><i class="fas fa-chevron-right"></i></button>
                 </div>
-            </div>
 
-            <div class="max-w-2xl mx-auto bg-white p-10 rounded-3xl shadow-xl border border-gray-100">
-                <h3 class="font-serif text-3xl font-semibold mb-8 text-center text-medical-dark">Siz de Deneyiminizi Paylaşın</h3>
-                <div class="space-y-6">
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <input type="text" x-model="newReview.author" placeholder="Adınız Soyadınız" class="w-full p-4 bg-medical-soft rounded-xl border border-gray-100 focus:ring-2 focus:ring-medical-gold/20 focus:outline-none">
-                        <div class="flex items-center gap-4 p-4 bg-medical-soft rounded-xl border border-gray-100 justify-between">
-                            <span class="text-sm font-semibold text-gray-600">Puanınız:</span>
-                            <div class="flex text-yellow-400 gap-1.5 cursor-pointer text-lg">
-                                <template x-for="i in 5">
-                                    <i class="fa-star" :class="i <= newReview.rating ? 'fas' : 'far'" @click="newReview.rating = i" @mouseover="newReview.tempRating = i" @mouseout="newReview.tempRating = newReview.rating"></i>
-                                </template>
-                            </div>
-                        </div>
-                    </div>
-                    <textarea x-model="newReview.comment" placeholder="Hizmet aldığınız klinik hakkındaki tarafsız yorumunuz..." class="w-full p-5 bg-medical-soft rounded-xl border border-gray-100 focus:ring-2 focus:ring-medical-gold/20 focus:outline-none h-40 font-light"></textarea>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <span class="text-brand-gold font-bold tracking-widest uppercase text-xs">UZMAN GÖRÜŞÜ</span>
+                    <h2 class="font-serif text-3xl font-bold text-brand-dark mt-3 mb-8">Güzellik Rehberi</h2>
                     
-                    <button @click="addReview()" class="w-full bg-medical-gold text-white font-bold py-4 rounded-full shadow-lg hover:bg-medical-gold/90 transition-all duration-300 transform hover:scale-[1.02] flex items-center justify-center gap-2">
-                        <i class="fas fa-paper-plane text-sm"></i> YORUMU YAYINLA
-                    </button>
+                    <div class="space-y-6">
+                        <a href="#" class="group flex gap-6 p-4 rounded-2xl border border-transparent hover:border-gray-100 hover:bg-brand-surface hover:shadow-sm transition-all">
+                            <div class="w-24 h-24 rounded-xl overflow-hidden shrink-0">
+                                <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            </div>
+                            <div class="flex-1">
+                                <div class="text-[10px] text-brand-gold font-bold uppercase tracking-widest mb-1">Fiyat Analizi 2026</div>
+                                <h3 class="font-bold text-brand-dark mb-2 text-sm md:text-base group-hover:text-brand-gold transition-colors">Kızılay Lazer Epilasyon Fiyatları Ne Kadar?</h3>
+                                <p class="text-xs text-gray-500 font-light line-clamp-2">2026 yılında Kızılay bölgesindeki kliniklerde uygulanan Buz Lazer ve Alexandrite seans ücretleri hakkında detaylı piyasa araştırması.</p>
+                            </div>
+                        </a>
+                        <a href="#" class="group flex gap-6 p-4 rounded-2xl border border-transparent hover:border-gray-100 hover:bg-brand-surface hover:shadow-sm transition-all">
+                            <div class="w-24 h-24 rounded-xl overflow-hidden shrink-0">
+                                <img src="https://images.unsplash.com/photo-1606105961732-6332674f4ee6?auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            </div>
+                            <div class="flex-1">
+                                <div class="text-[10px] text-brand-gold font-bold uppercase tracking-widest mb-1">Teknoloji</div>
+                                <h3 class="font-bold text-brand-dark mb-2 text-sm md:text-base group-hover:text-brand-gold transition-colors">Buz Lazer mi, İğneli Epilasyon mu?</h3>
+                                <p class="text-xs text-gray-500 font-light line-clamp-2">İnce tüylerde hangisi daha etkili? Kızılay uzmanlarının cilt tiplerine göre teknoloji seçimi tavsiyeleri.</p>
+                            </div>
+                        </a>
+                        <a href="#" class="group flex gap-6 p-4 rounded-2xl border border-transparent hover:border-gray-100 hover:bg-brand-surface hover:shadow-sm transition-all">
+                            <div class="w-24 h-24 rounded-xl overflow-hidden shrink-0">
+                                <img src="https://images.unsplash.com/photo-1596704017254-9b121068fb31?auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            </div>
+                            <div class="flex-1">
+                                <div class="text-[10px] text-brand-gold font-bold uppercase tracking-widest mb-1">Hazırlık</div>
+                                <h3 class="font-bold text-brand-dark mb-2 text-sm md:text-base group-hover:text-brand-gold transition-colors">Seans Öncesi Yapılması Gereken 5 Şey</h3>
+                                <p class="text-xs text-gray-500 font-light line-clamp-2">Lazer işleminden %100 verim almak ve yanık riskini sıfıra indirmek için seans öncesi dikkat etmeniz gereken altın kurallar.</p>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-24 px-4 container mx-auto">
-        <div class="grid lg:grid-cols-3 gap-16 items-start">
-            
-            <div class="lg:col-span-2 space-y-6 text-gray-600 font-light leading-relaxed prose prose-indigo max-w-none text-justify">
-                <h3 class="font-serif text-3xl font-semibold text-medical-dark mb-6">Ankara Kızılay Lazer Epilasyon Merkezleri Rehberi</h3>
-                <p>Ankara'nın kalbi Kızılay, lazer epilasyon ve estetik hizmetleri konusunda Türkiye'nin en yoğun ve rekabetçi bölgelerinden biridir. <strong class="text-medical-dark font-medium">Meşrutiyet Caddesi, Karanfil Sokak, Yüksel Caddesi ve Atatürk Bulvarı</strong> gibi merkezi lokasyonlarda yüzlerce güzellik salonu ve poliklinik hizmet vermektedir. Bu yoğunluk, danışanlar için fiyat rekabeti getirse de, doğru ve güvenilir kliniği seçmeyi zorlaştırmaktadır.</p>
-                <p>Platformumuz, Kızılay lazer epilasyon fiyatları, kullanılan cihaz teknolojileri (örneğin orijinal <strong class="text-medical-dark font-medium">Soprano Ice Buz Lazer</strong> veya <strong class="text-medical-dark font-medium">Cynosure Alexandrite</strong>) ve gerçek kullanıcı deneyimlerini bir araya getirerek karar sürecinizi kolaylaştırır. Kızılay'daki en iyi epilasyon merkezlerini karşılaştırırken uzman kadro, hijyen standartları ve FDA onaylı cihaz kullanımı gibi kritik faktörleri göz önünde bulundurmanızı tavsiye ederiz.</p>
-            </div>
-
-            <div class="space-y-4" x-data="{ selected: 1 }">
-                <h4 class="font-semibold text-medical-dark uppercase tracking-wider text-sm mb-5">Hukuki Bilgilendirme</h4>
-                
-                <div class="border border-gray-100 rounded-xl bg-white overflow-hidden shadow-sm">
-                    <button @click="selected !== 1 ? selected = 1 : selected = null" class="w-full flex justify-between items-center p-5 text-left font-medium text-medical-dark hover:bg-medical-soft transition-colors">
-                        Sorumluluk Reddi <i class="fas fa-chevron-down text-xs text-medical-gold" :class="selected === 1 ? 'rotate-180' : ''"></i>
-                    </button>
-                    <div class="relative overflow-hidden transition-all duration-500 max-h-0" x-ref="container1" :style="selected === 1 ? 'max-h: ' + $refs.container1.scrollHeight + 'px' : ''">
-                        <div class="p-5 text-xs text-gray-500 text-justify leading-relaxed border-t border-gray-100 bg-medical-soft/50">
-                            kizilaylazerepilasyon.com, yalnızca Ankara Kızılay bölgesindeki lazer epilasyon ve güzellik hizmeti sunan işletmeleri bir araya getiren bağımsız bir yerel firma rehberidir. Listelenen işletmeler; müşteri yorumları ve genel değerlendirmeler esas alınarak seçilmekte olup sitemizle herhangi bir ticari ortaklık bulunmamaktadır. Hizmet kalitesi, fiyat uyuşmazlığı veya randevu sorunlarından platformumuz sorumlu tutulamaz.
-                        </div>
-                    </div>
+    <section class="py-16 bg-brand-dark text-white border-b border-brand-gold/10">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="grid md:grid-cols-3 gap-10 text-xs font-light text-gray-400 text-justify leading-relaxed">
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-widest mb-4">Sorumluluk Reddi</h4>
+                    <p>kizilaylazerepilasyon.com, Ankara Kızılay bölgesindeki işletmeleri listeleyen bağımsız bir platformdur. Sitede yer alan klinikler ile ticari bir ortaklığımız bulunmamaktadır. Listelenen firmalarla yaşanabilecek fiyat uyuşmazlığı, hizmet kusuru veya sağlık sorunlarından platformumuz sorumlu tutulamaz. Randevu almadan önce kliniğin belgelerini sorgulamanız tavsiye edilir.</p>
                 </div>
-
-                <div class="border border-gray-100 rounded-xl bg-white overflow-hidden shadow-sm">
-                    <button @click="selected !== 2 ? selected = 2 : selected = null" class="w-full flex justify-between items-center p-5 text-left font-medium text-medical-dark hover:bg-medical-soft transition-colors">
-                        KVKK Aydınlatma <i class="fas fa-chevron-down text-xs text-medical-gold" :class="selected === 2 ? 'rotate-180' : ''"></i>
-                    </button>
-                    <div class="relative overflow-hidden transition-all duration-500 max-h-0" x-ref="container2" :style="selected === 2 ? 'max-h: ' + $refs.container2.scrollHeight + 'px' : ''">
-                        <div class="p-5 text-xs text-gray-500 text-justify leading-relaxed border-t border-gray-100 bg-medical-soft/50">
-                            6698 sayılı KVKK kapsamında sitemiz veri sorumlusu sıfatıyla hareket eder. İletişim formu ve yorumlar aracılığıyla iletilen veriler (ad-soyad, IP, yorum içeriği) yalnızca talep işleme ve platform kalitesini artırma amacıyla kullanılır. Verileriniz yasal zorunluluklar dışında üçüncü taraflarla paylaşılmaz.
-                        </div>
-                    </div>
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-widest mb-4">KVKK Aydınlatma</h4>
+                    <p>6698 sayılı Kişisel Verilerin Korunması Kanunu uyarınca, formlar üzerinden iletilen ad-soyad ve iletişim bilgileri yalnızca ilgili talebin işlenmesi amacıyla saklanır ve 3. şahıslarla paylaşılmaz. Platformumuz veri sorumlusu sıfatıyla endüstri standardı güvenlik protokolleri uygulamaktadır. Veri silme talepleriniz için iletişim kanallarını kullanabilirsiniz.</p>
                 </div>
-
-                <div class="border border-gray-100 rounded-xl bg-white overflow-hidden shadow-sm">
-                    <button @click="selected !== 3 ? selected = 3 : selected = null" class="w-full flex justify-between items-center p-5 text-left font-medium text-medical-dark hover:bg-medical-soft transition-colors">
-                        Gizlilik Politikası <i class="fas fa-chevron-down text-xs text-medical-gold" :class="selected === 3 ? 'rotate-180' : ''"></i>
-                    </button>
-                    <div class="relative overflow-hidden transition-all duration-500 max-h-0" x-ref="container3" :style="selected === 3 ? 'max-h: ' + $refs.container3.scrollHeight + 'px' : ''">
-                        <div class="p-5 text-xs text-gray-500 text-justify leading-relaxed border-t border-gray-100 bg-medical-soft/50">
-                            Sitemiz kullanıcı deneyimi için yalnızca zorunlu teknik çerezler kullanır. Google Analytics üzerinden anonim istatistik takibi yapılabilir. Harici bağlantılar (WhatsApp, Haritalar vb.) ilgili platformların kendi gizlilik politikalarına tabidir.
-                        </div>
-                    </div>
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-widest mb-4">Gizlilik Politikası</h4>
+                    <p>Web sitemiz, deneyiminizi iyileştirmek için anonim Google Analytics çerezleri kullanmaktadır. Sitemizde yer alan WhatsApp veya harita butonları sizi 3. taraf uygulamalara yönlendirir; bu platformların gizlilik kuralları kendi sorumluluklarındadır. Siteyi kullanarak aydınlatma metinlerini kabul etmiş sayılırsınız.</p>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <footer class="bg-medical-dark text-white pt-20 pb-10 px-4 relative">
-        <div class="absolute top-0 left-0 right-0 -translate-y-full overflow-hidden leading-[0] transform rotate-180 opacity-[0.02]">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-[200%] h-20">
-                <path d="M985.66,92.83C906.67,72 823.78,31 743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" fill="#ffffff"></path>
-            </svg>
-        </div>
-
-        <div class="container mx-auto grid md:grid-cols-4 gap-12 border-b border-white/10 pb-16 mb-10 text-center md:text-left">
-            <div class="md:col-span-1 space-y-4">
-                <h4 class="font-serif text-2xl font-semibold text-medical-gold">kizilay<span class="text-white/70">lazerepilasyon.com</span></h4>
-                <p class="text-gray-400 text-sm font-light">Ankara Kızılay bölgesinin bağımsız, şeffaf ve prestijli yerel firma rehberi.</p>
+    <footer class="bg-[#070b15] py-12">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="font-serif text-3xl font-bold text-white mb-6">kizilay<span class="text-brand-gold italic">lazerepilasyon</span>.com</h2>
+            <div class="flex justify-center gap-6 mb-8">
+                <a href="https://instagram.com/noktasosyalmedya" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-brand-gold hover:text-brand-dark transition-all"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/905537383806" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-brand-gold hover:text-brand-dark transition-all"><i class="fab fa-whatsapp"></i></a>
             </div>
-            <div class="space-y-4">
-                <h5 class="font-bold text-sm uppercase tracking-widest mb-5">Hızlı Linkler</h5>
-                <a href="#" class="block text-gray-400 hover:text-medical-gold transition-colors text-sm font-light">Ana Sayfa</a>
-                <a href="#" class="block text-gray-400 hover:text-medical-gold transition-colors text-sm font-light">Klinik Listesi</a>
-                <a href="#" class="block text-gray-400 hover:text-medical-gold transition-colors text-sm font-light">Fiyat Rehberi</a>
-            </div>
-            <div class="space-y-4">
-                <h5 class="font-bold text-sm uppercase tracking-widest mb-5">Kurumsal</h5>
-                <a href="https://instagram.com/noktasosyalmedya" target="_blank" class="block text-gray-400 hover:text-medical-gold transition-colors text-sm font-light">Reklam Ver / İşletme Ekle</a>
-                <a href="#" class="block text-gray-400 hover:text-medical-gold transition-colors text-sm font-light">İletişim Formu</a>
-            </div>
-            <div class="space-y-4">
-                <h5 class="font-bold text-sm uppercase tracking-widest mb-5">Destek</h5>
-                <a href="https://wa.me/905537383806" class="inline-flex items-center gap-2 bg-white/5 px-5 py-3 rounded-full hover:bg-white/10 transition text-sm">
-                    <i class="fab fa-whatsapp text-medical-gold"></i> Domain Alım Destek
-                </a>
-            </div>
-        </div>
-
-        <div class="container mx-auto text-center text-xs text-gray-500 font-light space-y-2">
-            <p>&copy; 2026 kizilaylazerepilasyon.com. Tüm Hakları Saklıdır.</p>
-            <p>
-                Aesthetic UI/UX & Geliştirme: <a href="https://instagram.com/noktasosyalmedya" target="_blank" class="text-medical-gold hover:underline font-normal">Nokta Sosyal Medya</a>
-            </p>
+            <p class="text-gray-500 text-sm mb-2">&copy; 2026 Tüm Hakları Saklıdır.</p>
+            <p class="text-gray-600 text-xs">Premium Arayüz & Geliştirme: <a href="https://instagram.com/noktasosyalmedya" target="_blank" class="text-brand-gold hover:underline">Nokta Sosyal Medya</a></p>
         </div>
     </footer>
 
+    <div class="md:hidden fixed bottom-0 w-full bg-white/90 backdrop-blur-xl border-t border-gray-100 z-50 px-6 py-3 flex justify-between items-center shadow-[0_-10px_40px_rgba(0,0,0,0.05)] pb-safe">
+        <a href="#" class="flex flex-col items-center text-brand-dark">
+            <i class="fas fa-home text-lg mb-1"></i>
+            <span class="text-[10px] font-bold">Keşfet</span>
+        </a>
+        <a href="#klinikler" class="flex flex-col items-center text-gray-400 hover:text-brand-dark transition-colors">
+            <i class="fas fa-list text-lg mb-1"></i>
+            <span class="text-[10px] font-bold">Klinikler</span>
+        </a>
+        <a href="https://wa.me/905537383806" class="flex flex-col items-center text-gray-400 hover:text-brand-gold transition-colors relative -top-3">
+            <div class="w-12 h-12 bg-brand-gold rounded-full flex items-center justify-center text-white shadow-luxury">
+                <i class="fab fa-whatsapp text-2xl"></i>
+            </div>
+        </a>
+        <a href="#" class="flex flex-col items-center text-gray-400 hover:text-brand-dark transition-colors">
+            <i class="fas fa-star text-lg mb-1"></i>
+            <span class="text-[10px] font-bold">Yorumlar</span>
+        </a>
+        <a href="https://instagram.com/noktasosyalmedya" class="flex flex-col items-center text-gray-400 hover:text-brand-dark transition-colors">
+            <i class="fas fa-bullhorn text-lg mb-1"></i>
+            <span class="text-[10px] font-bold">Reklam</span>
+        </a>
+    </div>
+
+    <a href="https://wa.me/905537383806" class="hidden md:flex fixed bottom-8 right-8 w-16 h-16 bg-green-500 rounded-full text-white items-center justify-center text-3xl shadow-2xl hover:scale-110 transition-transform z-50 hover:bg-green-600">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <script>
-        function siteApp() {
+        document.addEventListener("DOMContentLoaded", () => {
+            // Remove Preloader
+            setTimeout(() => {
+                const preloader = document.getElementById('preloader');
+                preloader.style.opacity = '0';
+                setTimeout(() => preloader.remove(), 600);
+            }, 800);
+
+            // Hide Sticky Banner on Scroll Down, Show on Scroll Up
+            let lastScroll = 0;
+            const banner = document.getElementById('sales-banner');
+            window.addEventListener('scroll', () => {
+                const currentScroll = window.pageYOffset;
+                if (currentScroll > 100 && currentScroll > lastScroll) {
+                    banner.style.transform = 'translateY(-100%)';
+                } else {
+                    banner.style.transform = 'translateY(0)';
+                }
+                lastScroll = currentScroll;
+            });
+        });
+
+        // Initialize AOS Animasyonları
+        AOS.init({ once: true, offset: 50 });
+
+        function luxuryDirectory() {
             return {
-                // Mevcut Yorumlar Verisi
-                reviews: [
-                    { id: 1, author: "Merve Y.", comment: "Meşrutiyet Caddesi'ndeki VIP kliniğe bu rehber sayesinde gittim. Gerçekten 5 yıldızlık bir hizmet. Teşekkürler!", rating: 5 },
-                    { id: 2, author: "Canan D.", comment: "Platformdaki fiyat karşılaştırmaları çok işime yaradı, Karanfil Sokak'ta bütçeme uygun harika bir yer buldum.", rating: 4 },
-                    { id: 3, author: "Selin G.", comment: "Hijyen puanı yüksek klinik arıyordum, buradaki yorumlar doğru çıktı. Çok memnunum.", rating: 5 },
-                    { id: 4, author: "Burcu A.", comment: "Soprano Titanium cihazı olan klinikleri bu listeden bulmak çok kolay oldu.", rating: 5 },
-                    { id: 5, author: "Zeynep T.", comment: "WhatsApp üzerinden hızlıca randevu oluşturabildim. Süreç çok şeffaf işledi.", rating: 4 },
-                    { id: 6, author: "Ece K.", comment: "Kızılay'ın karmaşasında harita özelliği ile kliniği elimle koymuş gibi buldum.", rating: 5 }
+                searchQuery: '',
+                activeCategory: 'Tüm Merkezler',
+                categories: ['Tüm Merkezler', 'Buz Lazer', 'Alexandrite', 'İğneli Epilasyon', 'Erkek Lazer'],
+                activeFaq: null,
+                
+                // Klinik Veritabanı
+                clinics: [
+                    { id: 1, name: "Elite Estetik Kızılay", type: "Buz Lazer", address: "Meşrutiyet Cad. No:42 Kızılay", rating: 4.9, reviews: 156, isVIP: true, image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&q=80", tags: ['Buz Lazer', 'FDA Onaylı', 'Kadın/Erkek'] },
+                    { id: 2, name: "Kızılay Lazer Polikliniği", type: "Alexandrite", address: "Atatürk Bulvarı No:115", rating: 4.8, reviews: 92, isVIP: false, image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80", tags: ['Alexandrite', 'Uzman Doktor'] },
+                    { id: 3, name: "DermaCare Güzellik", type: "İğneli Epilasyon", address: "Karanfil Sokak No:15", rating: 4.7, reviews: 64, isVIP: false, image: "https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=600&q=80", tags: ['İğneli Epilasyon', 'Yüz Bölgesi'] },
+                    { id: 4, name: "Men's Lazer Studio", type: "Erkek Lazer", address: "Yüksel Cad. No:8", rating: 4.9, reviews: 110, isVIP: true, image: "https://images.unsplash.com/photo-1521590832167-7bfcfaa6362f?w=600&q=80", tags: ['Erkek Lazer', 'Buz Lazer', 'Acısız'] },
                 ],
-                // Yeni Yorum Taslağı
-                newReview: {
-                    author: '',
-                    comment: '',
-                    rating: 5
+                
+                // SSS Verileri
+                faqs: [
+                    { q: "Sitedeki puanlamalar neye göre belirleniyor?", a: "Puanlamalar, platformumuz üzerinden veya bağımsız inceleme sitelerinden toplanan %100 gerçek danışan yorumlarının algoritmik ortalaması alınarak şeffaf bir şekilde hesaplanır." },
+                    { q: "Kizilaylazerepilasyon.com'dan randevu almak ücretli mi?", a: "Hayır. Platformumuz danışanlar için tamamen ücretsizdir. Beğendiğiniz kliniğin WhatsApp butonuna tıklayarak doğrudan onlarla iletişime geçersiniz." },
+                    { q: "Lazer epilasyon fiyatları ortalama ne kadar?", a: "Kızılay'da 2026 yılı itibarıyla fiyatlar cihaz türüne (Buz, Alex) ve uygulama bölgesine göre değişmektedir. Kesin fiyat için kliniklerden ücretsiz ön görüşme talep ediniz." },
+                    { q: "Sponsorlu (VIP) kliniklerin farkı nedir?", a: "VIP klinikler, hizmet kalitesi onaylanmış ve platformumuza reklam vererek ana sayfada öne çıkma hakkı kazanmış premium işletmelerdir." }
+                ],
+
+                // Yorumlar
+                reviews: [
+                    { id: 1, author: "Merve Y.", comment: "VIP klinikteki Soprano Titanium cihazından inanılmaz memnun kaldım, hiç acı hissetmedim.", rating: 5 },
+                    { id: 2, author: "Canan D.", comment: "Bu site sayesinde Karanfil sokaktaki merkezi buldum. Fiyat/Performans olarak Kızılay'ın en iyisi.", rating: 5 },
+                    { id: 3, author: "Selin G.", comment: "İğneli epilasyon için aradığım steril ortamı buradaki yorumlar sayesinde keşfettim.", rating: 4 },
+                    { id: 4, author: "Ahmet K.", comment: "Erkek lazer epilasyon konusunda çok çekincelerim vardı, direkt erkeklere özel merkezi bulup gittim.", rating: 5 },
+                    { id: 5, author: "Zeynep T.", comment: "Cihaz karşılaştırmaları işime çok yaradı. Alexandrite cihazı olan bir yer arıyordum, hemen buldum.", rating: 4 },
+                    { id: 6, author: "Ece K.", comment: "WhatsApp butonları çok pratik, beklemeden direkt randevumu ayarladım.", rating: 5 }
+                ],
+                
+                newReview: { author: '', comment: '', rating: 5 },
+
+                initApp() {
+                    // Alpine.js collapse plugin alternatifi
                 },
-                // Yorum Ekleme Fonksiyonu
-                addReview() {
-                    if(this.newReview.author && this.newReview.comment) {
-                        // Yeni yorumu listenin başına ekle (canlı simülasyon)
+
+                get filteredClinics() {
+                    return this.clinics.filter(clinic => {
+                        const matchesCategory = this.activeCategory === 'Tüm Merkezler' || clinic.type === this.activeCategory || clinic.tags.includes(this.activeCategory);
+                        const matchesSearch = clinic.name.toLowerCase().includes(this.searchQuery.toLowerCase()) || clinic.type.toLowerCase().includes(this.searchQuery.toLowerCase());
+                        return matchesCategory && matchesSearch;
+                    }).sort((a, b) => b.isVIP - a.isVIP); // VIP'leri üste al
+                },
+
+                submitReview() {
+                    if(this.newReview.author.length > 2 && this.newReview.comment.length > 10) {
                         this.reviews.unshift({
                             id: Date.now(),
                             author: this.newReview.author,
                             comment: this.newReview.comment,
                             rating: this.newReview.rating
                         });
-                        // Formu sıfırla
                         this.newReview = { author: '', comment: '', rating: 5 };
-                        alert("Yorumunuz başarıyla alındı ve kontrol edildikten sonra yayınlanacaktır! (Simülasyon modunda direkt eklendi)");
+                        alert("Değerlendirmeniz için teşekkürler! Moderasyon onayından sonra yayınlanacaktır. (Şu an test modunda eklendi)");
                     } else {
-                        alert("Lütfen adınızı ve deneyiminizi eksiksiz yazın.");
+                        alert("Lütfen geçerli bir ad ve detaylı bir yorum giriniz.");
                     }
                 }
             }
         }
     </script>
-
 </body>
 </html>
